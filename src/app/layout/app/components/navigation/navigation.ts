@@ -19,6 +19,15 @@ import {
   lucideLock,
   lucideSettings,
   lucideUsers,
+  lucideWallet,
+  lucidePiggyBank,
+  lucideHeart,
+  lucideCreditCard,
+  lucideBuilding,
+  lucideClipboardList,
+  lucideUserPlus,
+  lucideCalculator,
+  lucideShield,
 } from '@ng-icons/lucide';
 import { HlmCollapsibleImports } from '@spartan-ng/helm/collapsible';
 import { HlmDropdownMenuImports } from '@spartan-ng/helm/dropdown-menu';
@@ -59,6 +68,15 @@ import { NavUser } from '../user/user';
       lucideAlertTriangle,
       lucideSettings,
       lucideBot,
+      lucideWallet,
+      lucidePiggyBank,
+      lucideHeart,
+      lucideCreditCard,
+      lucideBuilding,
+      lucideClipboardList,
+      lucideUserPlus,
+      lucideCalculator,
+      lucideShield,
     }),
   ],
 })
@@ -82,54 +100,25 @@ export class Navigation {
 
   protected readonly _navigationGroups: NavGroup[] = [
     {
-      label: 'application',
+      label: 'gmn',
       items: [
-        {
-          title: 'Dashboard',
-          key: 'dashboard',
-          icon: 'lucideLayoutDashboard',
-          children: [
-            { title: 'Dashboard 1', key: 'dashboard-1', url: '/dashboard/dashboard-1', icon: 'lucideGauge' },
-            { title: 'Dashboard 2', key: 'dashboard-2', url: '/dashboard/dashboard-2', icon: 'lucideLayoutDashboard' },
-          ],
-        },
-        { title: 'Users', key: 'users', url: '/users', icon: 'lucideUsers' },
-        { title: 'Calendar', key: 'calendar', url: '/calendar', icon: 'lucideCalendarDays' },
-        { title: 'Kanban', key: 'kanban', url: '/kanban', icon: 'lucideKanbanSquare' },
-        { title: 'File Manager', key: 'fileManager', url: '/file-manager', icon: 'lucideFolderOpen' },
+        { title: 'Dashboard', key: 'gmnDashboard', url: '/gmn', icon: 'lucideLayoutDashboard' },
+        { title: 'People', key: 'gmnPeople', url: '/gmn/people', icon: 'lucideUsers' },
+        { title: 'Loan Requests', key: 'gmnLoanRequests', url: '/gmn/loan-requests', icon: 'lucideClipboardList' },
+        { title: 'Loans', key: 'gmnLoans', url: '/gmn/loans', icon: 'lucideWallet' },
+        { title: 'Savings', key: 'gmnSavings', url: '/gmn/savings', icon: 'lucidePiggyBank' },
+        { title: 'Donations', key: 'gmnDonations', url: '/gmn/donations', icon: 'lucideHeart' },
+        { title: 'Payments', key: 'gmnPayments', url: '/gmn/payments', icon: 'lucideCreditCard' },
+        { title: 'Masav', key: 'gmnMasav', url: '/gmn/masav', icon: 'lucideBuilding' },
       ],
     },
     {
-      label: 'pages',
+      label: 'management',
       items: [
-        {
-          title: 'Authentication',
-          key: 'authentication',
-          icon: 'lucideLock',
-          children: [
-            { title: 'Login', key: 'login', url: '/login' },
-            { title: 'Sign Up', key: 'signup', url: '/signup' },
-            { title: 'Reset Password', key: 'resetPassword', url: '/reset-password' },
-            { title: 'Two Step Verification', key: 'twoStepVerification', url: '/two-step-verification' },
-          ],
-        },
-        {
-          title: 'Errors',
-          key: 'errors',
-          icon: 'lucideAlertTriangle',
-          children: [
-            { title: 'Not Found', key: 'notFound', url: '/404-not-found' },
-            { title: 'Service Unavailable', key: 'serviceUnavailable', url: '/503-service-unavailable' },
-            { title: 'Unauthorized', key: 'unauthorized', url: '/401-unauthorized' },
-          ],
-        },
-      ],
-    },
-    {
-      label: 'other',
-      items: [
-        { title: 'settings', key: 'settings', url: '/settings', icon: 'lucideSettings' },
-        { title: 'aiAssistant', key: 'aiAssistant', url: '/assistant', icon: 'lucideBot' },
+        { title: 'Accounting', key: 'gmnAccounting', url: '/gmn/accounting', icon: 'lucideCalculator' },
+        { title: 'Reports', key: 'gmnReports', url: '/gmn/reports', icon: 'lucideBarChart3' },
+        { title: 'Admin', key: 'gmnAdmin', url: '/gmn/admin', icon: 'lucideShield' },
+        { title: 'Settings', key: 'settings', url: '/settings', icon: 'lucideSettings' },
       ],
     },
   ];

@@ -67,7 +67,20 @@
         "aiAssistant": "AI Assistant",
         "notFound": "Page Not Found",
         "unauthorized": "Unauthorized",
-        "serviceUnavailable": "Service Unavailable"
+        "serviceUnavailable": "Service Unavailable",
+        "gmn": "Gemach",
+        "management": "Management",
+        "gmnDashboard": "Dashboard",
+        "gmnPeople": "People",
+        "gmnLoanRequests": "Loan Requests",
+        "gmnLoans": "Loans",
+        "gmnSavings": "Savings",
+        "gmnDonations": "Donations",
+        "gmnPayments": "Payments",
+        "gmnMasav": "Masav",
+        "gmnAccounting": "Accounting",
+        "gmnReports": "Reports",
+        "gmnAdmin": "Admin"
     },
     "pagination": {
         "itemsPerPage": "Items per page",
@@ -170,5 +183,115 @@
         },
         "dismiss": "Dismiss notification",
         "unread": "Unread"
+    },
+    "loanRequest": {
+        "title": "Loan Request",
+        "organizationName": "Ohavei Chesed Gemach",
+        "demoData": "Fill Demo Data",
+        "loading": "Loading...",
+
+        "steps": {
+            "personalInfo": "Personal Info",
+            "fileUpload": "Upload Files",
+            "bankAccount": "Bank Account",
+            "guarantors": "Guarantors",
+            "payment": "Registration Fee",
+            "completion": "Complete"
+        },
+
+        "buttons": {
+            "previous": "Previous",
+            "next": "Continue",
+            "submit": "Submit Request",
+            "submitting": "Submitting..."
+        },
+
+        "fields": {
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "identityType": "ID Type",
+            "identityNumber": "ID Number",
+            "title": "Title",
+            "street": "Street",
+            "houseNumber": "House No.",
+            "apartment": "Apartment",
+            "city": "City",
+            "countryCode": "Country Code",
+            "mobilePhone": "Mobile Phone",
+            "phone2": "Phone 2",
+            "email": "Email",
+            "profession": "Profession",
+            "loanAmount": "Loan Amount (₪)",
+            "purpose": "Purpose",
+            "bank": "Bank",
+            "branch": "Branch",
+            "accountNumber": "Account Number",
+            "accountName": "Account Holder Name"
+        },
+
+        "placeholders": {
+            "select": "Select...",
+            "firstName": "Enter first name",
+            "lastName": "Enter last name",
+            "identityNumber": "Enter ID number",
+            "street": "Street name",
+            "houseNumber": "No.",
+            "apartment": "No.",
+            "searchCity": "Type to search...",
+            "phone": "050-0000000",
+            "email": "example@email.com",
+            "profession": "Your profession",
+            "loanAmount": "Loan amount",
+            "branch": "Branch number",
+            "accountNumber": "Account number",
+            "accountName": "Account holder name"
+        },
+
+        "personalInfo": {
+            "description": "Fill in your personal details"
+        },
+
+        "fileUpload": {
+            "description": "Please attach a copy of your ID",
+            "dragDrop": "Drag files here or click to upload",
+            "allowedTypes": "PNG, JPG, PDF up to 10MB",
+            "selectFiles": "Select Files",
+            "uploadedFiles": "Uploaded Files",
+            "required": "Please upload at least one file"
+        },
+
+        "bankAccount": {
+            "description": "Account details for loan transfer",
+            "info": "Account must be in applicant's name"
+        },
+
+        "guarantors": {
+            "description": "You can add up to 6 guarantors, minimum 3 required"
+        },
+
+        "payment": {
+            "description": "Processing requires a registration fee payment",
+            "totalAmount": "Total Payment:",
+            "notice": "The registration fee covers processing costs and is non-refundable even if the request is not approved.",
+            "selectMethod": "Select Payment Method",
+            "creditCard": "Credit Card",
+            "creditCardDesc": "Nedarim Plus",
+            "bankTransfer": "Bank Transfer",
+            "bankTransferDesc": "Transfer to Gemach account",
+            "bankDetails": "Bank details for transfer:"
+        },
+
+        "completion": {
+            "success": "Request Submitted Successfully!",
+            "message": "A summary document has been sent to your email",
+            "requestDetails": "Request Details",
+            "requestNumber": "Request Number:",
+            "serialNumber": "Serial Number:",
+            "emailSent": "Confirmation sent to your email",
+            "downloadReceipt": "Download Receipt",
+            "newRequest": "New Request",
+            "questions": "Have questions?",
+            "contactInfo": "Contact the Gemach office by phone or email"
+        }
     }
 }

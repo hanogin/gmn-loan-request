@@ -1,0 +1,297 @@
+{
+    "theme": {
+        "light": "בהיר",
+        "dark": "כהה"
+    },
+    "commandPalette": {
+        "search": "חיפוש",
+        "placeholder": "הקלד פקודה או חפש...",
+        "noResults": "לא נמצאו תוצאות.",
+        "navigation": "ניווט",
+        "quickActions": "פעולות מהירות",
+        "language": "שפה",
+        "theme": "ערכת נושא",
+        "collapseSidebar": "כווץ סרגל צד",
+        "expandSidebar": "הרחב סרגל צד"
+    },
+    "navUser": {
+        "account": "חשבון",
+        "subscription": "מנוי",
+        "pro": "פרו",
+        "theme": "ערכת נושא",
+        "language": "שפה",
+        "help": "עזרה ותמיכה",
+        "logout": "התנתק"
+    },
+    "breadcrumbs": {
+        "home": "בית"
+    },
+    "titles": {
+        "login": "התחברות",
+        "signup": "הרשמה",
+        "resetPassword": "שכחתי סיסמה",
+        "twoStepVerification": "אימות דו-שלבי",
+        "dashboard": "לוח בקרה",
+        "dashboard-1": "לוח בקרה 1",
+        "users": "משתמשים",
+        "notFound": "הדף לא נמצא",
+        "unauthorized": "גישה לא מורשית",
+        "serviceUnavailable": "שירות לא זמין",
+        "overview": "סקירה כללית",
+        "analytics": "ניתוח",
+        "settings": "הגדרות",
+        "aiAssistant": "עוזר AI",
+        "dashboard-2": "לוח בקרה 2",
+        "calendar": "לוח שנה",
+        "kanban": "קנבאן",
+        "fileManager": "מנהל קבצים"
+    },
+    "navigation": {
+        "application": "אפליקציה",
+        "pages": "דפים",
+        "authentication": "אימות",
+        "errors": "שגיאות",
+        "login": "התחברות",
+        "signup": "הרשמה",
+        "resetPassword": "שכחתי סיסמה",
+        "twoStepVerification": "אימות דו-שלבי",
+        "dashboard": "לוח בקרה",
+        "dashboard-1": "לוח בקרה 1",
+        "dashboard-2": "לוח בקרה 2",
+        "kanban": "קנבאן",
+        "fileManager": "מנהל קבצים",
+        "calendar": "לוח שנה",
+        "users": "משתמשים",
+        "settings": "הגדרות",
+        "other": "אחר",
+        "aiAssistant": "עוזר AI",
+        "notFound": "הדף לא נמצא",
+        "unauthorized": "גישה לא מורשית",
+        "serviceUnavailable": "שירות לא זמין",
+        "gmn": "גמ\"ח",
+        "management": "ניהול",
+        "gmnDashboard": "לוח בקרה",
+        "gmnPeople": "אנשי קשר",
+        "gmnLoanRequests": "בקשות הלוואה",
+        "gmnLoans": "הלוואות",
+        "gmnSavings": "פיקדונות",
+        "gmnDonations": "תרומות",
+        "gmnPayments": "תשלומים",
+        "gmnMasav": "מס\"ב",
+        "gmnAccounting": "הנהלת חשבונות",
+        "gmnReports": "דוחות",
+        "gmnAdmin": "ניהול מערכת"
+    },
+    "pagination": {
+        "itemsPerPage": "פריטים בעמוד",
+        "nextPage": "עמוד הבא",
+        "previousPage": "עמוד קודם",
+        "firstPage": "עמוד ראשון",
+        "lastPage": "עמוד אחרון",
+        "rowSelected": "{{selected}} מתוך {{total}} שורות נבחרו",
+        "page": "עמוד {{page}} מתוך {{totalPages}}"
+    },
+    "common": {
+        "noData": "אין נתונים זמינים.",
+        "clearFilter": "נקה מסנן",
+        "searchPlaceholder": "חיפוש...",
+        "unsavedChangesWarning": "יש לך שינויים שלא נשמרו. האם אתה בטוח שברצונך לעזוב ללא שמירה?",
+        "showPassword": "הצג סיסמה",
+        "selectAll": "בחר את כל השורות",
+        "selectRow": "בחר שורה",
+        "toggleTheme": "החלף ערכת נושא",
+        "toggleSidebar": "החלף סרגל צד",
+        "openRowActions": "פתח פעולות שורה",
+        "pinOptions": "אפשרויות הצמדה",
+        "backToTop": "חזור למעלה"
+    },
+    "actionDropdown": {
+        "edit": "עריכה",
+        "makeCopy": "צור עותק",
+        "favorite": "מועדף",
+        "delete": "מחיקה"
+    },
+    "buttons": {
+        "submit": "שלח",
+        "cancel": "ביטול",
+        "close": "סגור",
+        "confirm": "אישור",
+        "edit": "עריכה",
+        "delete": "מחיקה",
+        "save": "שמירה",
+        "update": "עדכון",
+        "columns": "עמודות",
+        "refresh": "רענון",
+        "clear": "נקה",
+        "import": "ייבוא",
+        "export": "ייצוא",
+        "clearFilter": "נקה מסנן",
+        "addNew": "הוסף חדש",
+        "pinStart": "הצמד להתחלה",
+        "pinEnd": "הצמד לסוף",
+        "pinLeft": "הצמד לשמאל",
+        "pinRight": "הצמד לימין",
+        "hide": "הסתר",
+        "unpin": "בטל הצמדה"
+    },
+    "sort": {
+        "asc": "עולה",
+        "desc": "יורד"
+    },
+    "validation": {
+        "required": "שדה חובה.",
+        "minLength": "שדה זה חייב להכיל לפחות {{ min }} תווים.",
+        "maxLength": "שדה זה לא יכול להכיל יותר מ-{{ max }} תווים.",
+        "email": "אנא הזן כתובת מייל תקינה.",
+        "invalid": "שדה זה אינו תקין.",
+        "min": "הערך חייב להיות לפחות {{ min }}.",
+        "max": "הערך לא יכול להיות יותר מ-{{ max }}.",
+        "pattern": "שדה זה חייב להתאים לתבנית {{ pattern }}.",
+        "passwordMismatch": "הסיסמאות אינן תואמות.",
+        "endBeforeStart": "תאריך הסיום חייב להיות אחרי תאריך ההתחלה."
+    },
+    "countryPicker": {
+        "selectCountryPlaceholder": "בחר מדינה...",
+        "searchCountryPlaceholder": "חפש מדינה..."
+    },
+    "phoneNumberPicker": {
+        "selectCountryPlaceholder": "בחר קידומת מדינה...",
+        "searchCountryPlaceholder": "חפש מדינה...",
+        "enterPhoneNumberPlaceholder": "הזן מספר טלפון..."
+    },
+    "notifications": {
+        "title": "התראות",
+        "markAllAsRead": "סמן הכל כנקרא",
+        "clearAll": "נקה הכל",
+        "noNotifications": "אין התראות",
+        "noNotificationsDescription": "אתה מעודכן בכל. התראות חדשות יופיעו כאן.",
+        "actions": {
+            "commentedOn": "הגיב על",
+            "liked": "אהב",
+            "shared": "שיתף",
+            "mentionedYouIn": "ציין אותך ב",
+            "repliedTo": "השיב ל",
+            "assignedYouTo": "שייך אותך ל"
+        },
+        "subjects": {
+            "yourPost": "הפוסט שלך",
+            "theProject": "הפרויקט",
+            "aTask": "משימה",
+            "anIssue": "בעיה",
+            "aDocument": "מסמך",
+            "theReport": "הדוח"
+        },
+        "dismiss": "התעלם מהתראה",
+        "unread": "לא נקרא"
+    },
+    "loanRequest": {
+        "title": "בקשת הלוואה",
+        "organizationName": "גמ\"ח אוהבי חסד",
+        "demoData": "מלא נתוני דמו",
+        "loading": "טוען...",
+
+        "steps": {
+            "personalInfo": "פרטים אישיים",
+            "fileUpload": "צירוף קבצים",
+            "bankAccount": "פרטי חשבון",
+            "guarantors": "ערבים",
+            "payment": "דמי רישום",
+            "completion": "סיום"
+        },
+
+        "buttons": {
+            "previous": "הקודם",
+            "next": "המשך",
+            "submit": "שלח בקשה",
+            "submitting": "שולח..."
+        },
+
+        "fields": {
+            "firstName": "שם פרטי",
+            "lastName": "שם משפחה",
+            "identityType": "סוג זהות",
+            "identityNumber": "מספר זיהוי",
+            "title": "תואר",
+            "street": "רחוב",
+            "houseNumber": "מספר בית",
+            "apartment": "דירה",
+            "city": "עיר",
+            "countryCode": "קידומת מדינה",
+            "mobilePhone": "טלפון נייד",
+            "phone2": "טלפון נוסף",
+            "email": "מייל",
+            "profession": "עיסוק",
+            "loanAmount": "סכום הבקשה (₪)",
+            "purpose": "מטרה",
+            "bank": "בנק",
+            "branch": "סניף",
+            "accountNumber": "מספר חשבון",
+            "accountName": "שם בעל החשבון"
+        },
+
+        "placeholders": {
+            "select": "בחר...",
+            "firstName": "הזן שם פרטי",
+            "lastName": "הזן שם משפחה",
+            "identityNumber": "הזן מספר זיהוי",
+            "street": "שם הרחוב",
+            "houseNumber": "מס'",
+            "apartment": "מס'",
+            "searchCity": "הקלד לחיפוש...",
+            "phone": "050-0000000",
+            "email": "example@email.com",
+            "profession": "תחום העיסוק",
+            "loanAmount": "סכום ההלוואה",
+            "branch": "מספר סניף",
+            "accountNumber": "מספר חשבון",
+            "accountName": "שם בעל החשבון"
+        },
+
+        "personalInfo": {
+            "description": "מלא את הפרטים האישיים שלך"
+        },
+
+        "fileUpload": {
+            "description": "יש לצרף לבקשה צילום תעודת זהות",
+            "dragDrop": "גרור קבצים לכאן או לחץ להעלאה",
+            "allowedTypes": "PNG, JPG, PDF עד 10MB",
+            "selectFiles": "בחר קבצים",
+            "uploadedFiles": "קבצים שהועלו",
+            "required": "יש לצרף לפחות קובץ אחד"
+        },
+
+        "bankAccount": {
+            "description": "פרטי חשבון אליו תועבר ההלוואה",
+            "info": "החשבון חייב להיות על שם מבקש ההלוואה"
+        },
+
+        "guarantors": {
+            "description": "ניתן להכניס עד 6 ערבים, חובה למלאות לפחות 3 ערבים"
+        },
+
+        "payment": {
+            "description": "הטיפול בבקשה מותנה בתשלום דמי רישום",
+            "totalAmount": "סה\"כ לתשלום:",
+            "notice": "דמי הרישום מיועדים לכיסוי הוצאות הטיפול בבקשה ולא יוחזרו גם במידה והבקשה לא תאושר.",
+            "selectMethod": "בחר אמצעי תשלום",
+            "creditCard": "תשלום באשראי",
+            "creditCardDesc": "נדרים פלוס",
+            "bankTransfer": "העברה בנקאית",
+            "bankTransferDesc": "העברה לחשבון הגמ\"ח",
+            "bankDetails": "פרטי החשבון להעברה:"
+        },
+
+        "completion": {
+            "success": "הבקשה נשלחה בהצלחה!",
+            "message": "מסמך סיכום הבקשה נשלח למייל שהזנת",
+            "requestDetails": "פרטי הבקשה",
+            "requestNumber": "מספר בקשה:",
+            "serialNumber": "מספר סידורי:",
+            "emailSent": "אישור נשלח למייל שהזנת",
+            "downloadReceipt": "הורד קבלה",
+            "newRequest": "בקשה חדשה",
+            "questions": "יש לך שאלות?",
+            "contactInfo": "ניתן לפנות למשרדי הגמ\"ח בטלפון או במייל"
+        }
+    }
+}

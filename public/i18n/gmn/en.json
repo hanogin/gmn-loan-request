@@ -1,0 +1,552 @@
+{
+    "common": {
+        "search": "Search",
+        "searchPlaceholder": "Search...",
+        "filter": "Filter",
+        "status": "Status",
+        "all": "All",
+        "active": "Active",
+        "inactive": "Inactive",
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "closed": "Closed",
+        "new": "New",
+        "edit": "Edit",
+        "view": "View",
+        "delete": "Delete",
+        "save": "Save",
+        "cancel": "Cancel",
+        "back": "Back",
+        "actions": "Actions",
+        "details": "Details",
+        "summary": "Summary",
+        "total": "Total",
+        "amount": "Amount",
+        "date": "Date",
+        "notes": "Notes",
+        "description": "Description",
+        "type": "Type",
+        "name": "Name",
+        "phone": "Phone",
+        "email": "Email",
+        "address": "Address",
+        "currency": "₪",
+        "percent": "%",
+        "noData": "No data available",
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "confirm": "Confirm",
+        "yes": "Yes",
+        "no": "No",
+        "from": "From",
+        "to": "To",
+        "export": "Export",
+        "print": "Print",
+        "refresh": "Refresh"
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "subtitle": "Gemach system overview",
+        "stats": {
+            "totalLoans": "Total Loans",
+            "activeLoans": "Active Loans",
+            "totalSavings": "Total Savings",
+            "activeSavings": "Active Savings",
+            "totalDonations": "Total Donations",
+            "monthlyDonations": "Monthly Donations",
+            "pendingRequests": "Pending Requests",
+            "awaitingApproval": "Awaiting Approval",
+            "latePayments": "Late Payments",
+            "requiresAttention": "Requires Attention",
+            "availableFunds": "Available Funds",
+            "currentBalance": "Current Balance"
+        },
+        "quickActions": {
+            "title": "Quick Actions",
+            "newLoanRequest": "New Loan Request",
+            "newSaving": "New Saving",
+            "newDonation": "New Donation",
+            "recordPayment": "Record Payment",
+            "generateReport": "Generate Report",
+            "createMasavFile": "Create Masav File"
+        },
+        "recentActivity": {
+            "title": "Recent Activity",
+            "viewAll": "View All"
+        },
+        "upcomingPayments": {
+            "title": "Upcoming Payments",
+            "viewAll": "View All"
+        }
+    },
+    "people": {
+        "title": "People",
+        "subtitle": "Manage contacts and members",
+        "newPerson": "New Person",
+        "searchPlaceholder": "Search by name, ID, phone...",
+        "fields": {
+            "fullName": "Full Name",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "idNumber": "ID Number",
+            "idType": "ID Type",
+            "phone": "Phone",
+            "mobile": "Mobile",
+            "email": "Email",
+            "address": "Address",
+            "city": "City",
+            "street": "Street",
+            "houseNumber": "House No.",
+            "apartment": "Apartment",
+            "zipCode": "Zip Code",
+            "dateOfBirth": "Date of Birth",
+            "profession": "Profession",
+            "notes": "Notes"
+        },
+        "tabs": {
+            "details": "Details",
+            "loans": "Loans",
+            "savings": "Savings",
+            "donations": "Donations",
+            "payments": "Payments",
+            "documents": "Documents"
+        },
+        "stats": {
+            "totalPeople": "Total People",
+            "activeBorrowers": "Active Borrowers",
+            "activeDepositors": "Active Depositors",
+            "donors": "Donors"
+        },
+        "personTypes": {
+            "borrower": "Borrower",
+            "depositor": "Depositor",
+            "donor": "Donor",
+            "guarantor": "Guarantor"
+        }
+    },
+    "loanRequests": {
+        "title": "Loan Requests",
+        "subtitle": "Manage loan applications",
+        "newRequest": "New Request",
+        "searchPlaceholder": "Search by name, request number...",
+        "fields": {
+            "requestNumber": "Request Number",
+            "requestDate": "Request Date",
+            "applicant": "Applicant",
+            "amount": "Amount",
+            "requestedAmount": "Requested Amount",
+            "approvedAmount": "Approved Amount",
+            "purpose": "Purpose",
+            "status": "Status",
+            "numberOfPayments": "Number of Payments",
+            "guarantors": "Guarantors",
+            "documents": "Documents",
+            "notes": "Notes",
+            "decisionDate": "Decision Date",
+            "decisionNotes": "Decision Notes"
+        },
+        "status": {
+            "pending": "Pending",
+            "inReview": "In Review",
+            "approved": "Approved",
+            "rejected": "Rejected",
+            "cancelled": "Cancelled",
+            "converted": "Converted to Loan"
+        },
+        "actions": {
+            "approve": "Approve",
+            "reject": "Reject",
+            "convertToLoan": "Convert to Loan",
+            "requestDocuments": "Request Documents",
+            "addGuarantor": "Add Guarantor"
+        },
+        "stats": {
+            "pending": "Pending",
+            "approved": "Approved",
+            "rejected": "Rejected",
+            "thisMonth": "This Month"
+        }
+    },
+    "loans": {
+        "title": "Loans",
+        "subtitle": "Manage active loans",
+        "newLoan": "New Loan",
+        "searchPlaceholder": "Search by name, loan number...",
+        "fields": {
+            "loanNumber": "Loan Number",
+            "borrower": "Borrower",
+            "loanAmount": "Loan Amount",
+            "currentBalance": "Current Balance",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "numberOfPayments": "Number of Payments",
+            "paidPayments": "Paid Payments",
+            "remainingPayments": "Remaining Payments",
+            "monthlyPayment": "Monthly Payment",
+            "paymentDay": "Payment Day",
+            "interestRate": "Interest Rate",
+            "status": "Status",
+            "purpose": "Purpose",
+            "guarantors": "Guarantors",
+            "collateral": "Collateral",
+            "notes": "Notes"
+        },
+        "status": {
+            "active": "Active",
+            "completed": "Completed",
+            "defaulted": "Defaulted",
+            "frozen": "Frozen",
+            "cancelled": "Cancelled"
+        },
+        "tabs": {
+            "details": "Details",
+            "payments": "Payments",
+            "schedule": "Payment Schedule",
+            "guarantors": "Guarantors",
+            "documents": "Documents"
+        },
+        "stats": {
+            "activeLoans": "Active Loans",
+            "totalLoaned": "Total Loaned",
+            "totalBalance": "Total Balance",
+            "averageLoan": "Average Loan",
+            "latePayments": "Late Payments"
+        },
+        "payments": {
+            "paymentNumber": "Payment #",
+            "dueDate": "Due Date",
+            "paidDate": "Paid Date",
+            "amount": "Amount",
+            "principal": "Principal",
+            "interest": "Interest",
+            "status": "Status",
+            "paid": "Paid",
+            "unpaid": "Unpaid",
+            "late": "Late",
+            "partial": "Partial"
+        }
+    },
+    "savings": {
+        "title": "Savings",
+        "subtitle": "Manage depositor savings",
+        "newSaving": "New Saving",
+        "searchPlaceholder": "Search by name, saving number...",
+        "fields": {
+            "savingNumber": "Saving Number",
+            "depositor": "Depositor",
+            "amount": "Amount",
+            "currentBalance": "Current Balance",
+            "openDate": "Open Date",
+            "maturityDate": "Maturity Date",
+            "closedDate": "Closed Date",
+            "interestRate": "Interest Rate",
+            "savingType": "Saving Type",
+            "status": "Status",
+            "notes": "Notes"
+        },
+        "status": {
+            "active": "Active",
+            "matured": "Matured",
+            "closed": "Closed",
+            "frozen": "Frozen"
+        },
+        "types": {
+            "regular": "Regular",
+            "fixed": "Fixed Term",
+            "flexible": "Flexible"
+        },
+        "stats": {
+            "activeSavings": "Active Savings",
+            "upcomingMaturity": "Upcoming Maturity",
+            "totalDeposits": "Total Deposits",
+            "averageInterest": "Average Interest"
+        }
+    },
+    "donations": {
+        "title": "Donations",
+        "subtitle": "Manage donations and donors",
+        "newDonation": "New Donation",
+        "searchPlaceholder": "Search by name, donation number...",
+        "fields": {
+            "donationNumber": "Donation Number",
+            "donor": "Donor",
+            "amount": "Amount",
+            "date": "Date",
+            "type": "Type",
+            "purpose": "Purpose",
+            "campaign": "Campaign",
+            "paymentMethod": "Payment Method",
+            "receiptNumber": "Receipt Number",
+            "isRecurring": "Recurring",
+            "frequency": "Frequency",
+            "notes": "Notes",
+            "anonymous": "Anonymous"
+        },
+        "types": {
+            "oneTime": "One-Time",
+            "recurring": "Recurring",
+            "pledge": "Pledge",
+            "inKind": "In-Kind"
+        },
+        "paymentMethods": {
+            "cash": "Cash",
+            "check": "Check",
+            "creditCard": "Credit Card",
+            "bankTransfer": "Bank Transfer",
+            "other": "Other"
+        },
+        "stats": {
+            "totalDonations": "Total Donations",
+            "thisMonth": "This Month",
+            "recurringDonors": "Recurring Donors",
+            "averageDonation": "Average Donation"
+        }
+    },
+    "payments": {
+        "title": "Payments",
+        "subtitle": "Manage all payments",
+        "newPayment": "New Payment",
+        "searchPlaceholder": "Search by name, payment number...",
+        "fields": {
+            "paymentNumber": "Payment Number",
+            "payer": "Payer",
+            "amount": "Amount",
+            "date": "Date",
+            "dueDate": "Due Date",
+            "paidDate": "Paid Date",
+            "type": "Type",
+            "method": "Payment Method",
+            "reference": "Reference",
+            "entityType": "Entity Type",
+            "entityNumber": "Entity Number",
+            "status": "Status",
+            "notes": "Notes"
+        },
+        "types": {
+            "loanPayment": "Loan Payment",
+            "savingDeposit": "Saving Deposit",
+            "savingWithdrawal": "Saving Withdrawal",
+            "donation": "Donation",
+            "fee": "Fee",
+            "other": "Other"
+        },
+        "status": {
+            "pending": "Pending",
+            "completed": "Completed",
+            "failed": "Failed",
+            "cancelled": "Cancelled"
+        },
+        "stats": {
+            "todayPayments": "Today's Payments",
+            "pendingPayments": "Pending Payments",
+            "thisMonth": "This Month",
+            "totalCollected": "Total Collected"
+        }
+    },
+    "masav": {
+        "title": "Masav",
+        "subtitle": "Bank file management",
+        "dashboard": {
+            "title": "Masav Dashboard",
+            "createCollection": "Create Collection File",
+            "createPayment": "Create Payment File",
+            "viewFiles": "View Files"
+        },
+        "files": {
+            "title": "Masav Files",
+            "fileName": "File Name",
+            "type": "Type",
+            "createdDate": "Created Date",
+            "status": "Status",
+            "recordCount": "Records",
+            "totalAmount": "Total Amount",
+            "download": "Download",
+            "upload": "Upload Response"
+        },
+        "fileTypes": {
+            "collection": "Collection",
+            "payment": "Payment"
+        },
+        "status": {
+            "created": "Created",
+            "sent": "Sent",
+            "processed": "Processed",
+            "error": "Error"
+        },
+        "collection": {
+            "title": "Create Collection File",
+            "selectPayments": "Select Payments",
+            "executionDate": "Execution Date",
+            "generate": "Generate File"
+        },
+        "payment": {
+            "title": "Create Payment File",
+            "selectPayments": "Select Payments",
+            "executionDate": "Execution Date",
+            "generate": "Generate File"
+        },
+        "stats": {
+            "pendingCollections": "Pending Collections",
+            "pendingPayments": "Pending Payments",
+            "thisMonth": "This Month",
+            "successRate": "Success Rate"
+        }
+    },
+    "accounting": {
+        "title": "Accounting",
+        "subtitle": "Financial management",
+        "dashboard": {
+            "title": "Accounting Dashboard"
+        },
+        "chartOfAccounts": {
+            "title": "Chart of Accounts",
+            "newAccount": "New Account",
+            "accountNumber": "Account Number",
+            "accountName": "Account Name",
+            "accountType": "Account Type",
+            "parentAccount": "Parent Account",
+            "balance": "Balance",
+            "isActive": "Active"
+        },
+        "journalEntries": {
+            "title": "Journal Entries",
+            "newEntry": "New Entry",
+            "entryNumber": "Entry Number",
+            "date": "Date",
+            "description": "Description",
+            "debit": "Debit",
+            "credit": "Credit",
+            "account": "Account",
+            "reference": "Reference"
+        },
+        "trialBalance": {
+            "title": "Trial Balance",
+            "asOf": "As of",
+            "account": "Account",
+            "debit": "Debit",
+            "credit": "Credit",
+            "totalDebit": "Total Debit",
+            "totalCredit": "Total Credit"
+        },
+        "accountTypes": {
+            "asset": "Asset",
+            "liability": "Liability",
+            "equity": "Equity",
+            "income": "Income",
+            "expense": "Expense"
+        }
+    },
+    "reports": {
+        "title": "Reports",
+        "subtitle": "Generate and view reports",
+        "dashboard": {
+            "title": "Reports Dashboard",
+            "selectReport": "Select a Report"
+        },
+        "types": {
+            "loansSummary": "Loans Summary",
+            "savingsSummary": "Savings Summary",
+            "donationsSummary": "Donations Summary",
+            "latePayments": "Late Payments",
+            "cpaReport": "CPA Report",
+            "cashFlow": "Cash Flow",
+            "balanceSheet": "Balance Sheet"
+        },
+        "filters": {
+            "dateRange": "Date Range",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "status": "Status",
+            "type": "Type"
+        },
+        "actions": {
+            "generate": "Generate Report",
+            "export": "Export",
+            "print": "Print"
+        },
+        "loansSummary": {
+            "title": "Loans Summary Report",
+            "totalLoans": "Total Loans",
+            "activeLoans": "Active Loans",
+            "completedLoans": "Completed Loans",
+            "totalAmount": "Total Amount",
+            "outstandingBalance": "Outstanding Balance"
+        },
+        "savingsSummary": {
+            "title": "Savings Summary Report",
+            "totalSavings": "Total Savings",
+            "activeSavings": "Active Savings",
+            "totalDeposited": "Total Deposited",
+            "totalInterest": "Total Interest"
+        },
+        "donationsSummary": {
+            "title": "Donations Summary Report",
+            "totalDonations": "Total Donations",
+            "totalAmount": "Total Amount",
+            "averageDonation": "Average Donation",
+            "topDonors": "Top Donors"
+        },
+        "latePayments": {
+            "title": "Late Payments Report",
+            "borrower": "Borrower",
+            "loanNumber": "Loan Number",
+            "dueDate": "Due Date",
+            "daysLate": "Days Late",
+            "amount": "Amount"
+        },
+        "cpa": {
+            "title": "CPA Report",
+            "period": "Period",
+            "income": "Income",
+            "expenses": "Expenses",
+            "netIncome": "Net Income"
+        }
+    },
+    "admin": {
+        "title": "System Administration",
+        "subtitle": "System settings and configuration",
+        "dashboard": {
+            "title": "Admin Dashboard"
+        },
+        "users": {
+            "title": "User Management",
+            "newUser": "New User",
+            "username": "Username",
+            "email": "Email",
+            "role": "Role",
+            "status": "Status",
+            "lastLogin": "Last Login",
+            "resetPassword": "Reset Password"
+        },
+        "roles": {
+            "admin": "Administrator",
+            "manager": "Manager",
+            "user": "User",
+            "readonly": "Read Only"
+        },
+        "lov": {
+            "title": "List of Values",
+            "newValue": "New Value",
+            "category": "Category",
+            "code": "Code",
+            "value": "Value",
+            "displayOrder": "Display Order",
+            "isActive": "Active"
+        },
+        "settings": {
+            "title": "System Settings",
+            "general": "General",
+            "organization": "Organization",
+            "email": "Email Settings",
+            "backup": "Backup",
+            "organizationName": "Organization Name",
+            "address": "Address",
+            "phone": "Phone",
+            "emailAddress": "Email Address",
+            "defaultInterestRate": "Default Interest Rate",
+            "defaultPaymentDay": "Default Payment Day"
+        }
+    }
+}

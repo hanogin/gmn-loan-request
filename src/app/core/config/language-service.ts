@@ -6,7 +6,7 @@ import { arabicCalendarI18n, englishCalendarI18n, frenchCalendarI18n } from './d
 import { DirectionalityService } from './directionality-service';
 import { LOCAL_STORAGE } from './tokens';
 
-export const LANGUAGES = ['en', 'fr', 'ar'] as const;
+export const LANGUAGES = ['en', 'fr', 'ar', 'he'] as const;
 export type Language = (typeof LANGUAGES)[number];
 
 export interface AvailableLanguage {
@@ -40,6 +40,10 @@ export class LanguageService {
       code: 'ar',
       label: 'العربية',
     },
+    {
+      code: 'he',
+      label: 'עברית',
+    },
   ]);
   public readonly availableLanguages = this._availableLanguages.asReadonly();
 
@@ -47,6 +51,7 @@ export class LanguageService {
     en: englishCalendarI18n,
     fr: frenchCalendarI18n,
     ar: arabicCalendarI18n,
+    he: englishCalendarI18n, // Using English calendar i18n for Hebrew for now
   };
 
   constructor() {
@@ -72,7 +77,7 @@ export class LanguageService {
     this._localStorage?.setItem('lang', lang);
     await this._ensureLocaleRegistered(lang);
     this._translocoService.setActiveLang(lang);
-    const direction = lang === 'ar' ? 'rtl' : 'ltr';
+    const direction = (lang === 'ar' || lang === 'he') ? 'rtl' : 'ltr';
     this._dir.updateDirection(direction);
   }
 
@@ -85,6 +90,9 @@ export class LanguageService {
     } else if (lang === 'ar') {
       const localeAr = (await import('@angular/common/locales/ar')).default;
       registerLocaleData(localeAr, 'ar');
+    } else if (lang === 'he') {
+      const localeHe = (await import('@angular/common/locales/he')).default;
+      registerLocaleData(localeHe, 'he');
     }
 
     registeredLocales.add(lang);

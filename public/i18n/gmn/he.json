@@ -1,0 +1,552 @@
+{
+    "common": {
+        "search": "חיפוש",
+        "searchPlaceholder": "חיפוש...",
+        "filter": "סינון",
+        "status": "סטטוס",
+        "all": "הכל",
+        "active": "פעיל",
+        "inactive": "לא פעיל",
+        "pending": "ממתין",
+        "approved": "מאושר",
+        "rejected": "נדחה",
+        "closed": "סגור",
+        "new": "חדש",
+        "edit": "עריכה",
+        "view": "צפייה",
+        "delete": "מחיקה",
+        "save": "שמירה",
+        "cancel": "ביטול",
+        "back": "חזרה",
+        "actions": "פעולות",
+        "details": "פרטים",
+        "summary": "סיכום",
+        "total": "סה\"כ",
+        "amount": "סכום",
+        "date": "תאריך",
+        "notes": "הערות",
+        "description": "תיאור",
+        "type": "סוג",
+        "name": "שם",
+        "phone": "טלפון",
+        "email": "מייל",
+        "address": "כתובת",
+        "currency": "₪",
+        "percent": "%",
+        "noData": "אין נתונים להצגה",
+        "loading": "טוען...",
+        "error": "שגיאה",
+        "success": "הצלחה",
+        "confirm": "אישור",
+        "yes": "כן",
+        "no": "לא",
+        "from": "מ",
+        "to": "עד",
+        "export": "ייצוא",
+        "print": "הדפסה",
+        "refresh": "רענון"
+    },
+    "dashboard": {
+        "title": "לוח בקרה",
+        "subtitle": "סקירה כללית של מערכת הגמ\"ח",
+        "stats": {
+            "totalLoans": "סה\"כ הלוואות",
+            "activeLoans": "הלוואות פעילות",
+            "totalSavings": "סה\"כ פיקדונות",
+            "activeSavings": "פיקדונות פעילים",
+            "totalDonations": "סה\"כ תרומות",
+            "monthlyDonations": "תרומות החודש",
+            "pendingRequests": "בקשות ממתינות",
+            "awaitingApproval": "ממתינות לאישור",
+            "latePayments": "תשלומים באיחור",
+            "requiresAttention": "דורש טיפול",
+            "availableFunds": "כספים זמינים",
+            "currentBalance": "יתרה נוכחית"
+        },
+        "quickActions": {
+            "title": "פעולות מהירות",
+            "newLoanRequest": "בקשת הלוואה חדשה",
+            "newSaving": "פיקדון חדש",
+            "newDonation": "תרומה חדשה",
+            "recordPayment": "רישום תשלום",
+            "generateReport": "הפקת דוח",
+            "createMasavFile": "יצירת קובץ מס\"ב"
+        },
+        "recentActivity": {
+            "title": "פעילות אחרונה",
+            "viewAll": "הצג הכל"
+        },
+        "upcomingPayments": {
+            "title": "תשלומים קרובים",
+            "viewAll": "הצג הכל"
+        }
+    },
+    "people": {
+        "title": "אנשי קשר",
+        "subtitle": "ניהול אנשי קשר וחברים",
+        "newPerson": "איש קשר חדש",
+        "searchPlaceholder": "חיפוש לפי שם, ת.ז., טלפון...",
+        "fields": {
+            "fullName": "שם מלא",
+            "firstName": "שם פרטי",
+            "lastName": "שם משפחה",
+            "idNumber": "מספר זהות",
+            "idType": "סוג זיהוי",
+            "phone": "טלפון",
+            "mobile": "נייד",
+            "email": "מייל",
+            "address": "כתובת",
+            "city": "עיר",
+            "street": "רחוב",
+            "houseNumber": "מספר בית",
+            "apartment": "דירה",
+            "zipCode": "מיקוד",
+            "dateOfBirth": "תאריך לידה",
+            "profession": "עיסוק",
+            "notes": "הערות"
+        },
+        "tabs": {
+            "details": "פרטים",
+            "loans": "הלוואות",
+            "savings": "פיקדונות",
+            "donations": "תרומות",
+            "payments": "תשלומים",
+            "documents": "מסמכים"
+        },
+        "stats": {
+            "totalPeople": "סה\"כ אנשים",
+            "activeBorrowers": "לווים פעילים",
+            "activeDepositors": "מפקידים פעילים",
+            "donors": "תורמים"
+        },
+        "personTypes": {
+            "borrower": "לווה",
+            "depositor": "מפקיד",
+            "donor": "תורם",
+            "guarantor": "ערב"
+        }
+    },
+    "loanRequests": {
+        "title": "בקשות הלוואה",
+        "subtitle": "ניהול בקשות להלוואות",
+        "newRequest": "בקשה חדשה",
+        "searchPlaceholder": "חיפוש לפי שם, מספר בקשה...",
+        "fields": {
+            "requestNumber": "מספר בקשה",
+            "requestDate": "תאריך בקשה",
+            "applicant": "מבקש",
+            "amount": "סכום",
+            "requestedAmount": "סכום מבוקש",
+            "approvedAmount": "סכום מאושר",
+            "purpose": "מטרה",
+            "status": "סטטוס",
+            "numberOfPayments": "מספר תשלומים",
+            "guarantors": "ערבים",
+            "documents": "מסמכים",
+            "notes": "הערות",
+            "decisionDate": "תאריך החלטה",
+            "decisionNotes": "הערות להחלטה"
+        },
+        "status": {
+            "pending": "ממתין",
+            "inReview": "בבדיקה",
+            "approved": "מאושר",
+            "rejected": "נדחה",
+            "cancelled": "בוטל",
+            "converted": "הומר להלוואה"
+        },
+        "actions": {
+            "approve": "אישור",
+            "reject": "דחייה",
+            "convertToLoan": "המרה להלוואה",
+            "requestDocuments": "בקשת מסמכים",
+            "addGuarantor": "הוספת ערב"
+        },
+        "stats": {
+            "pending": "ממתינות",
+            "approved": "מאושרות",
+            "rejected": "נדחו",
+            "thisMonth": "החודש"
+        }
+    },
+    "loans": {
+        "title": "הלוואות",
+        "subtitle": "ניהול הלוואות פעילות",
+        "newLoan": "הלוואה חדשה",
+        "searchPlaceholder": "חיפוש לפי שם, מספר הלוואה...",
+        "fields": {
+            "loanNumber": "מספר הלוואה",
+            "borrower": "לווה",
+            "loanAmount": "סכום הלוואה",
+            "currentBalance": "יתרה נוכחית",
+            "startDate": "תאריך התחלה",
+            "endDate": "תאריך סיום",
+            "numberOfPayments": "מספר תשלומים",
+            "paidPayments": "תשלומים ששולמו",
+            "remainingPayments": "תשלומים שנותרו",
+            "monthlyPayment": "תשלום חודשי",
+            "paymentDay": "יום תשלום",
+            "interestRate": "ריבית",
+            "status": "סטטוס",
+            "purpose": "מטרה",
+            "guarantors": "ערבים",
+            "collateral": "בטחונות",
+            "notes": "הערות"
+        },
+        "status": {
+            "active": "פעילה",
+            "completed": "הושלמה",
+            "defaulted": "בכשל",
+            "frozen": "מוקפאת",
+            "cancelled": "בוטלה"
+        },
+        "tabs": {
+            "details": "פרטים",
+            "payments": "תשלומים",
+            "schedule": "לוח תשלומים",
+            "guarantors": "ערבים",
+            "documents": "מסמכים"
+        },
+        "stats": {
+            "activeLoans": "הלוואות פעילות",
+            "totalLoaned": "סה\"כ הולווה",
+            "totalBalance": "סה\"כ יתרה",
+            "averageLoan": "ממוצע הלוואה",
+            "latePayments": "תשלומים באיחור"
+        },
+        "payments": {
+            "paymentNumber": "מס' תשלום",
+            "dueDate": "תאריך לתשלום",
+            "paidDate": "תאריך תשלום",
+            "amount": "סכום",
+            "principal": "קרן",
+            "interest": "ריבית",
+            "status": "סטטוס",
+            "paid": "שולם",
+            "unpaid": "לא שולם",
+            "late": "באיחור",
+            "partial": "חלקי"
+        }
+    },
+    "savings": {
+        "title": "פיקדונות",
+        "subtitle": "ניהול פיקדונות המפקידים",
+        "newSaving": "פיקדון חדש",
+        "searchPlaceholder": "חיפוש לפי שם, מספר פיקדון...",
+        "fields": {
+            "savingNumber": "מספר פיקדון",
+            "depositor": "מפקיד",
+            "amount": "סכום",
+            "currentBalance": "יתרה נוכחית",
+            "openDate": "תאריך פתיחה",
+            "maturityDate": "תאריך פירעון",
+            "closedDate": "תאריך סגירה",
+            "interestRate": "ריבית",
+            "savingType": "סוג פיקדון",
+            "status": "סטטוס",
+            "notes": "הערות"
+        },
+        "status": {
+            "active": "פעיל",
+            "matured": "להחזרה",
+            "closed": "סגור",
+            "frozen": "מוקפא"
+        },
+        "types": {
+            "regular": "רגיל",
+            "fixed": "קבוע",
+            "flexible": "גמיש"
+        },
+        "stats": {
+            "activeSavings": "פעילים",
+            "upcomingMaturity": "להחזרה קרובה",
+            "totalDeposits": "סה\"כ פיקדונות",
+            "averageInterest": "ריבית ממוצעת"
+        }
+    },
+    "donations": {
+        "title": "תרומות",
+        "subtitle": "ניהול תרומות ותורמים",
+        "newDonation": "תרומה חדשה",
+        "searchPlaceholder": "חיפוש לפי שם, מספר תרומה...",
+        "fields": {
+            "donationNumber": "מספר תרומה",
+            "donor": "תורם",
+            "amount": "סכום",
+            "date": "תאריך",
+            "type": "סוג",
+            "purpose": "ייעוד",
+            "campaign": "קמפיין",
+            "paymentMethod": "אמצעי תשלום",
+            "receiptNumber": "מספר קבלה",
+            "isRecurring": "הוראת קבע",
+            "frequency": "תדירות",
+            "notes": "הערות",
+            "anonymous": "אנונימי"
+        },
+        "types": {
+            "oneTime": "חד פעמית",
+            "recurring": "הוראת קבע",
+            "pledge": "התחייבות",
+            "inKind": "תרומה בעין"
+        },
+        "paymentMethods": {
+            "cash": "מזומן",
+            "check": "צ'ק",
+            "creditCard": "כרטיס אשראי",
+            "bankTransfer": "העברה בנקאית",
+            "other": "אחר"
+        },
+        "stats": {
+            "totalDonations": "סה\"כ תרומות",
+            "thisMonth": "החודש",
+            "recurringDonors": "תורמים קבועים",
+            "averageDonation": "ממוצע תרומה"
+        }
+    },
+    "payments": {
+        "title": "תשלומים",
+        "subtitle": "ניהול כל התשלומים",
+        "newPayment": "תשלום חדש",
+        "searchPlaceholder": "חיפוש לפי שם, מספר תשלום...",
+        "fields": {
+            "paymentNumber": "מספר תשלום",
+            "payer": "משלם",
+            "amount": "סכום",
+            "date": "תאריך",
+            "dueDate": "תאריך לתשלום",
+            "paidDate": "תאריך תשלום",
+            "type": "סוג",
+            "method": "אמצעי תשלום",
+            "reference": "אסמכתא",
+            "entityType": "סוג ישות",
+            "entityNumber": "מספר ישות",
+            "status": "סטטוס",
+            "notes": "הערות"
+        },
+        "types": {
+            "loanPayment": "תשלום הלוואה",
+            "savingDeposit": "הפקדה לפיקדון",
+            "savingWithdrawal": "משיכה מפיקדון",
+            "donation": "תרומה",
+            "fee": "עמלה",
+            "other": "אחר"
+        },
+        "status": {
+            "pending": "ממתין",
+            "completed": "הושלם",
+            "failed": "נכשל",
+            "cancelled": "בוטל"
+        },
+        "stats": {
+            "todayPayments": "תשלומים להיום",
+            "pendingPayments": "תשלומים ממתינים",
+            "thisMonth": "החודש",
+            "totalCollected": "סה\"כ נגבה"
+        }
+    },
+    "masav": {
+        "title": "מס\"ב",
+        "subtitle": "ניהול קבצי בנק",
+        "dashboard": {
+            "title": "לוח בקרה מס\"ב",
+            "createCollection": "יצירת קובץ גבייה",
+            "createPayment": "יצירת קובץ תשלומים",
+            "viewFiles": "צפייה בקבצים"
+        },
+        "files": {
+            "title": "קבצי מס\"ב",
+            "fileName": "שם קובץ",
+            "type": "סוג",
+            "createdDate": "תאריך יצירה",
+            "status": "סטטוס",
+            "recordCount": "רשומות",
+            "totalAmount": "סה\"כ סכום",
+            "download": "הורדה",
+            "upload": "העלאת תגובה"
+        },
+        "fileTypes": {
+            "collection": "גבייה",
+            "payment": "תשלום"
+        },
+        "status": {
+            "created": "נוצר",
+            "sent": "נשלח",
+            "processed": "עובד",
+            "error": "שגיאה"
+        },
+        "collection": {
+            "title": "יצירת קובץ גבייה",
+            "selectPayments": "בחירת תשלומים",
+            "executionDate": "תאריך ביצוע",
+            "generate": "הפקת קובץ"
+        },
+        "payment": {
+            "title": "יצירת קובץ תשלומים",
+            "selectPayments": "בחירת תשלומים",
+            "executionDate": "תאריך ביצוע",
+            "generate": "הפקת קובץ"
+        },
+        "stats": {
+            "pendingCollections": "גביות ממתינות",
+            "pendingPayments": "תשלומים ממתינים",
+            "thisMonth": "החודש",
+            "successRate": "אחוז הצלחה"
+        }
+    },
+    "accounting": {
+        "title": "הנהלת חשבונות",
+        "subtitle": "ניהול פיננסי",
+        "dashboard": {
+            "title": "לוח בקרה הנהלת חשבונות"
+        },
+        "chartOfAccounts": {
+            "title": "מפתח חשבונות",
+            "newAccount": "חשבון חדש",
+            "accountNumber": "מספר חשבון",
+            "accountName": "שם חשבון",
+            "accountType": "סוג חשבון",
+            "parentAccount": "חשבון אב",
+            "balance": "יתרה",
+            "isActive": "פעיל"
+        },
+        "journalEntries": {
+            "title": "פקודות יומן",
+            "newEntry": "פקודה חדשה",
+            "entryNumber": "מספר פקודה",
+            "date": "תאריך",
+            "description": "תיאור",
+            "debit": "חובה",
+            "credit": "זכות",
+            "account": "חשבון",
+            "reference": "אסמכתא"
+        },
+        "trialBalance": {
+            "title": "מאזן בוחן",
+            "asOf": "נכון ל",
+            "account": "חשבון",
+            "debit": "חובה",
+            "credit": "זכות",
+            "totalDebit": "סה\"כ חובה",
+            "totalCredit": "סה\"כ זכות"
+        },
+        "accountTypes": {
+            "asset": "נכס",
+            "liability": "התחייבות",
+            "equity": "הון עצמי",
+            "income": "הכנסה",
+            "expense": "הוצאה"
+        }
+    },
+    "reports": {
+        "title": "דוחות",
+        "subtitle": "הפקת וצפייה בדוחות",
+        "dashboard": {
+            "title": "לוח דוחות",
+            "selectReport": "בחר דוח"
+        },
+        "types": {
+            "loansSummary": "סיכום הלוואות",
+            "savingsSummary": "סיכום פיקדונות",
+            "donationsSummary": "סיכום תרומות",
+            "latePayments": "תשלומים באיחור",
+            "cpaReport": "דוח רו\"ח",
+            "cashFlow": "תזרים מזומנים",
+            "balanceSheet": "מאזן"
+        },
+        "filters": {
+            "dateRange": "טווח תאריכים",
+            "startDate": "מתאריך",
+            "endDate": "עד תאריך",
+            "status": "סטטוס",
+            "type": "סוג"
+        },
+        "actions": {
+            "generate": "הפק דוח",
+            "export": "ייצוא",
+            "print": "הדפסה"
+        },
+        "loansSummary": {
+            "title": "דוח סיכום הלוואות",
+            "totalLoans": "סה\"כ הלוואות",
+            "activeLoans": "הלוואות פעילות",
+            "completedLoans": "הלוואות שהושלמו",
+            "totalAmount": "סה\"כ סכום",
+            "outstandingBalance": "יתרה לגבייה"
+        },
+        "savingsSummary": {
+            "title": "דוח סיכום פיקדונות",
+            "totalSavings": "סה\"כ פיקדונות",
+            "activeSavings": "פיקדונות פעילים",
+            "totalDeposited": "סה\"כ הופקד",
+            "totalInterest": "סה\"כ ריבית"
+        },
+        "donationsSummary": {
+            "title": "דוח סיכום תרומות",
+            "totalDonations": "סה\"כ תרומות",
+            "totalAmount": "סה\"כ סכום",
+            "averageDonation": "ממוצע תרומה",
+            "topDonors": "תורמים מובילים"
+        },
+        "latePayments": {
+            "title": "דוח תשלומים באיחור",
+            "borrower": "לווה",
+            "loanNumber": "מספר הלוואה",
+            "dueDate": "תאריך לתשלום",
+            "daysLate": "ימי איחור",
+            "amount": "סכום"
+        },
+        "cpa": {
+            "title": "דוח רו\"ח",
+            "period": "תקופה",
+            "income": "הכנסות",
+            "expenses": "הוצאות",
+            "netIncome": "רווח נקי"
+        }
+    },
+    "admin": {
+        "title": "ניהול מערכת",
+        "subtitle": "הגדרות ותצורת המערכת",
+        "dashboard": {
+            "title": "לוח ניהול"
+        },
+        "users": {
+            "title": "ניהול משתמשים",
+            "newUser": "משתמש חדש",
+            "username": "שם משתמש",
+            "email": "מייל",
+            "role": "תפקיד",
+            "status": "סטטוס",
+            "lastLogin": "כניסה אחרונה",
+            "resetPassword": "איפוס סיסמה"
+        },
+        "roles": {
+            "admin": "מנהל מערכת",
+            "manager": "מנהל",
+            "user": "משתמש",
+            "readonly": "צפייה בלבד"
+        },
+        "lov": {
+            "title": "רשימות ערכים",
+            "newValue": "ערך חדש",
+            "category": "קטגוריה",
+            "code": "קוד",
+            "value": "ערך",
+            "displayOrder": "סדר תצוגה",
+            "isActive": "פעיל"
+        },
+        "settings": {
+            "title": "הגדרות מערכת",
+            "general": "כללי",
+            "organization": "ארגון",
+            "email": "הגדרות מייל",
+            "backup": "גיבוי",
+            "organizationName": "שם הארגון",
+            "address": "כתובת",
+            "phone": "טלפון",
+            "emailAddress": "כתובת מייל",
+            "defaultInterestRate": "ריבית ברירת מחדל",
+            "defaultPaymentDay": "יום תשלום ברירת מחדל"
+        }
+    }
+}

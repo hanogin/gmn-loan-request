@@ -1,0 +1,175 @@
+{
+  "loanRequest": {
+    "title": "בקשת הלוואה",
+    "organizationName": "גמ\"ח אוהבי חסד",
+    "demoData": "מלא נתוני דמו",
+    "loading": "טוען...",
+    
+    "steps": {
+      "personalInfo": "פרטים אישיים",
+      "fileUpload": "צירוף קבצים",
+      "bankAccount": "פרטי חשבון",
+      "guarantors": "ערבים",
+      "payment": "דמי רישום",
+      "completion": "סיום"
+    },
+    
+    "buttons": {
+      "previous": "הקודם",
+      "next": "המשך",
+      "submit": "שלח בקשה",
+      "submitting": "שולח..."
+    },
+    
+    "fields": {
+      "firstName": "שם פרטי",
+      "lastName": "שם משפחה",
+      "identityType": "סוג זהות",
+      "identityNumber": "מספר זיהוי",
+      "title": "תואר",
+      "street": "רחוב",
+      "houseNumber": "מספר בית",
+      "apartment": "דירה",
+      "city": "עיר",
+      "countryCode": "קידומת מדינה",
+      "mobilePhone": "טלפון נייד",
+      "phone2": "טלפון נוסף",
+      "email": "מייל",
+      "profession": "עיסוק",
+      "loanAmount": "סכום הבקשה (₪)",
+      "purpose": "מטרה",
+      "bank": "בנק",
+      "branch": "סניף",
+      "accountNumber": "מספר חשבון",
+      "accountName": "שם בעל החשבון"
+    },
+    
+    "placeholders": {
+      "select": "בחר...",
+      "firstName": "הזן שם פרטי",
+      "lastName": "הזן שם משפחה",
+      "identityNumber": "הזן מספר זיהוי",
+      "street": "שם הרחוב",
+      "houseNumber": "מס'",
+      "apartment": "מס'",
+      "searchCity": "הקלד לחיפוש...",
+      "phone": "050-0000000",
+      "email": "example@email.com",
+      "profession": "תחום העיסוק",
+      "loanAmount": "סכום ההלוואה",
+      "branch": "מספר סניף",
+      "accountNumber": "מספר חשבון",
+      "accountName": "שם בעל החשבון"
+    },
+    
+    "personalInfo": {
+      "description": "מלא את הפרטים האישיים שלך"
+    },
+    
+    "fileUpload": {
+      "description": "יש לצרף לבקשה צילום תעודת זהות",
+      "dragDrop": "גרור קבצים לכאן או לחץ להעלאה",
+      "allowedTypes": "PNG, JPG, PDF עד 10MB",
+      "selectFiles": "בחר קבצים",
+      "uploadedFiles": "קבצים שהועלו",
+      "required": "יש לצרף לפחות קובץ אחד"
+    },
+    
+    "bankAccount": {
+      "description": "פרטי חשבון אליו תועבר ההלוואה",
+      "info": "החשבון חייב להיות על שם מבקש ההלוואה"
+    },
+    
+    "guarantors": {
+      "description": "ניתן להכניס עד 6 ערבים, חובה למלאות לפחות 3 ערבים"
+    },
+    
+    "payment": {
+      "description": "הטיפול בבקשה מותנה בתשלום דמי רישום",
+      "totalAmount": "סה\"כ לתשלום:",
+      "notice": "דמי הרישום מיועדים לכיסוי הוצאות הטיפול בבקשה ולא יוחזרו גם במידה והבקשה לא תאושר.",
+      "selectMethod": "בחר אמצעי תשלום",
+      "creditCard": "תשלום באשראי",
+      "creditCardDesc": "נדרים פלוס",
+      "bankTransfer": "העברה בנקאית",
+      "bankTransferDesc": "העברה לחשבון הגמ\"ח",
+      "bankDetails": "פרטי החשבון להעברה:"
+    },
+    
+    "completion": {
+      "success": "הבקשה נשלחה בהצלחה!",
+      "message": "מסמך סיכום הבקשה נשלח למייל שהזנת",
+      "requestDetails": "פרטי הבקשה",
+      "requestNumber": "מספר בקשה:",
+      "serialNumber": "מספר סידורי:",
+      "emailSent": "אישור נשלח למייל שהזנת",
+      "downloadReceipt": "הורד קבלה",
+      "newRequest": "בקשה חדשה",
+      "questions": "יש לך שאלות?",
+      "contactInfo": "ניתן לפנות למשרדי הגמ\"ח בטלפון או במייל"
+    },
+    
+    "validation": {
+      "required": "שדה חובה",
+      "israeliIdOnlyDigits": "תעודת זהות חייבת להכיל ספרות בלבד",
+      "israeliIdMinLength": "תעודת זהות חייבת להכיל לפחות 5 ספרות",
+      "israeliIdMaxLength": "תעודת זהות לא יכולה להכיל יותר מ-9 ספרות",
+      "israeliIdInvalid": "מספר תעודת זהות לא תקין",
+      "passportMinLength": "מספר דרכון חייב להכיל לפחות 3 תווים",
+      "passportMaxLength": "מספר דרכון לא יכול להכיל יותר מ-20 תווים",
+      "passportInvalidChars": "מספר דרכון יכול להכיל אותיות באנגלית וספרות בלבד",
+      "passportAllZeros": "מספר דרכון לא יכול להיות רק אפסים",
+      "phoneTooShort": "מספר טלפון קצר מדי",
+      "phoneTooLong": "מספר טלפון ארוך מדי",
+      "phoneInvalid": "מספר טלפון לא תקין",
+      "emailInvalid": "כתובת מייל לא תקינה",
+      "accountOnlyDigits": "מספר חשבון חייב להכיל ספרות בלבד",
+      "accountMinLength": "מספר חשבון חייב להכיל לפחות 4 ספרות",
+      "accountMaxLength": "מספר חשבון לא יכול להכיל יותר מ-9 ספרות",
+      "branchOnlyDigits": "מספר סניף חייב להכיל ספרות בלבד",
+      "branchMaxLength": "מספר סניף לא יכול להכיל יותר מ-5 ספרות",
+      "amountPositive": "יש להזין סכום חיובי",
+      "amountTooLarge": "סכום גדול מדי",
+      "nameNoNumbers": "השדה לא יכול להכיל מספרים",
+      "minGuarantors": "יש להוסיף ולשמור לפחות 3 ערבים",
+      "cannotGuaranteeSelf": "אדם לא יכול להיות ערב לעצמו",
+      "duplicateGuarantor": "לא ניתן להוסיף ערב פעמיים"
+    },
+    
+    "toast": {
+      "fileUploaded": "הקובץ הועלה בהצלחה",
+      "fileRemoved": "הקובץ הוסר",
+      "fileTypeNotSupported": "סוג הקובץ אינו נתמך",
+      "fileTooLarge": "הקובץ גדול מ-10MB",
+      "fileAlreadyExists": "הקובץ כבר הועלה",
+      "guarantorSaved": "פרטי הערב נשמרו בהצלחה",
+      "guarantorAdded": "הוספת ערב חדש",
+      "guarantorRemoved": "הערב הוסר",
+      "requestSubmitted": "הבקשה נשלחה בהצלחה!",
+      "submissionError": "אירעה שגיאה בשליחת הבקשה",
+      "fillRequired": "יש למלא את כל השדות הנדרשים",
+      "demoDataLoaded": "נתוני הדמו נטענו בהצלחה"
+    },
+    
+    "identityTypes": {
+      "id": "תעודת זהות",
+      "passport": "דרכון"
+    },
+    
+    "titles": {
+      "mr": "מר",
+      "mrs": "גברת",
+      "rabbi": "הרב",
+      "dr": "ד\"ר"
+    },
+    
+    "purposes": {
+      "simcha": "שמחות",
+      "medical": "רפואה",
+      "education": "חינוך",
+      "housing": "דיור",
+      "business": "עסק",
+      "other": "אחר"
+    }
+  }
+}
