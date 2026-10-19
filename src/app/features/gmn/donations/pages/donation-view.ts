@@ -1,6 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { TranslocoModule } from '@jsverse/transloco';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
   lucideArrowRight,
@@ -44,7 +44,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
     }),
   ],
   template: `
-    <div class="space-y-6" >
+    <div class="space-y-6" *transloco="let t; prefix: 'gmn'">
       @if (donation()) {
         <!-- Header -->
         <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -53,18 +53,18 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideArrowRight" class="h-4 w-4" />
             </button>
             <div>
-              <h1 class="text-2xl font-bold">פרטי תרומה</h1>
+              <h1 class="text-2xl font-bold">{{ t('common.details') }}</h1>
               <p class="text-muted-foreground">{{ getPersonName(donation()!.personId) }} - {{ formatDate(donation()!.donationDate) }}</p>
             </div>
           </div>
           <div class="flex gap-2">
             <button hlmBtn variant="outline" (click)="printReceipt()">
               <ng-icon name="lucidePrinter" class="me-2 h-4 w-4" />
-              הדפס קבלה
+              {{ t('common.print') }}
             </button>
             <button hlmBtn variant="outline" [routerLink]="['/gmn/donations', donation()!.id, 'edit']">
               <ng-icon name="lucideEdit" class="me-2 h-4 w-4" />
-              עריכה
+              {{ t('common.edit') }}
             </button>
           </div>
         </div>
@@ -72,34 +72,34 @@ import { GmnMockService } from '../../../../core/services/mock-data';
         <!-- Amount Card -->
         <div hlmCard class="p-8 text-center bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20">
           <ng-icon name="lucideHeart" class="mx-auto mb-4 h-12 w-12 text-green-600" />
-          <p class="text-sm text-muted-foreground">סכום התרומה</p>
+          <p class="text-sm text-muted-foreground">{{ t('common.amount') }}</p>
           <p class="text-4xl font-bold text-green-600">₪{{ formatNumber(donation()!.amount) }}</p>
         </div>
 
         <!-- Details -->
         <div class="grid gap-6 lg:grid-cols-2">
           <div hlmCard class="p-6">
-            <h3 class="mb-4 font-semibold border-b pb-2">פרטי התרומה</h3>
+            <h3 class="mb-4 font-semibold border-b pb-2">{{ t('common.details') }}</h3>
             <div class="grid gap-3">
               <div class="flex justify-between">
-                <span class="text-muted-foreground">תאריך:</span>
+                <span class="text-muted-foreground">{{ t('common.date') }}:</span>
                 <span>{{ formatDate(donation()!.donationDate) }}</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-muted-foreground">סכום:</span>
+                <span class="text-muted-foreground">{{ t('common.amount') }}:</span>
                 <span class="font-semibold text-green-600">₪{{ formatNumber(donation()!.amount) }}</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-muted-foreground">אמצעי תשלום:</span>
-                <span>{{ donation()!.paymentMethodName || getPaymentMethodName(donation()!.paymentMethod) }}</span>
+                <span class="text-muted-foreground">{{ t('donations.fields.paymentMethod') }}:</span>
+                <span>{{ getPaymentMethodName(donation()!.paymentMethod) }}</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-muted-foreground">ייעוד:</span>
-                <span>{{ donation()!.purposeName || donation()!.purpose || 'כללי' }}</span>
+                <span class="text-muted-foreground">{{ t('donations.fields.purpose') }}:</span>
+                <span>{{ donation()!.purposeName || donation()!.purpose || t('donations.types.oneTime') }}</span>
               </div>
               @if (donation()!.receiptNumber) {
                 <div class="flex justify-between">
-                  <span class="text-muted-foreground">מספר קבלה:</span>
+                  <span class="text-muted-foreground">{{ t('donations.fields.receiptNumber') }}:</span>
                   <span class="font-mono">{{ donation()!.receiptNumber }}</span>
                 </div>
               }
@@ -108,7 +108,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
 
           <!-- Donor Info -->
           <div hlmCard class="p-6">
-            <h3 class="mb-4 font-semibold border-b pb-2">פרטי התורם</h3>
+            <h3 class="mb-4 font-semibold border-b pb-2">{{ t('donations.fields.donor') }}</h3>
             <div class="flex items-center gap-4 mb-4">
               <div class="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
                 <ng-icon name="lucideUser" class="h-6 w-6" />
@@ -130,7 +130,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
           <!-- Notes -->
           @if (donation()!.notes) {
             <div hlmCard class="p-6 lg:col-span-2">
-              <h3 class="mb-4 font-semibold border-b pb-2">הערות</h3>
+              <h3 class="mb-4 font-semibold border-b pb-2">{{ t('common.notes') }}</h3>
               <p class="text-muted-foreground whitespace-pre-wrap">{{ donation()!.notes }}</p>
             </div>
           }
@@ -138,8 +138,8 @@ import { GmnMockService } from '../../../../core/services/mock-data';
       } @else {
         <div hlmCard class="p-8 text-center">
           <ng-icon name="lucideAlertCircle" class="mx-auto mb-4 h-12 w-12 text-muted-foreground" />
-          <p class="text-lg font-medium">תרומה לא נמצאה</p>
-          <button hlmBtn class="mt-4" routerLink="/gmn/donations">חזרה לרשימה</button>
+          <p class="text-lg font-medium">{{ t('common.noData') }}</p>
+          <button hlmBtn class="mt-4" routerLink="/gmn/donations">{{ t('common.back') }}</button>
         </div>
       }
     </div>
@@ -148,6 +148,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
 export default class DonationViewPage {
   private readonly mockService = inject(GmnMockService);
   private readonly route = inject(ActivatedRoute);
+  private readonly transloco = inject(TranslocoService);
 
   readonly donation = computed(() => {
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -156,7 +157,8 @@ export default class DonationViewPage {
 
   getPersonName(personId: number): string {
     const person = this.mockService.persons().find(p => p.id === personId);
-    return person?.fullName || `${person?.firstName} ${person?.lastName}` || 'לא ידוע';
+    if (!person) return this.transloco.translate('gmn.common.noData');
+    return person.fullName || `${person.firstName} ${person.lastName}`;
   }
 
   getPersonPhone(personId: number): string {
@@ -178,14 +180,14 @@ export default class DonationViewPage {
   }
 
   getPaymentMethodName(method: string): string {
-    const names: Record<string, string> = {
-      'CASH': 'מזומן',
-      'CHECK': 'צ\'ק',
-      'TRANSFER': 'העברה',
-      'CREDIT': 'אשראי',
-      'MASAV': 'מס"ב',
+    const keyMap: Record<string, string> = {
+      'CASH': 'gmn.donations.paymentMethods.cash',
+      'CHECK': 'gmn.donations.paymentMethods.check',
+      'TRANSFER': 'gmn.donations.paymentMethods.bankTransfer',
+      'CREDIT': 'gmn.donations.paymentMethods.creditCard',
+      'MASAV': 'gmn.masav.title',
     };
-    return names[method] || method;
+    return this.transloco.translate(keyMap[method] || method);
   }
 
   printReceipt(): void {

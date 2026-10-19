@@ -44,7 +44,13 @@
         "to": "To",
         "export": "Export",
         "print": "Print",
-        "refresh": "Refresh"
+        "refresh": "Refresh",
+        "inDevelopment": "In Development",
+        "comingSoon": "Coming soon",
+        "clearFilters": "Clear Filters",
+        "showing": "Showing",
+        "of": "of",
+        "page": "Page"
     },
     "dashboard": {
         "title": "Dashboard",

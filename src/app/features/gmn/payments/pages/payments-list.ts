@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { TranslocoModule } from '@jsverse/transloco';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
   lucideSearch,
@@ -54,16 +54,16 @@ import { GmnMockService } from '../../../../core/services/mock-data';
     }),
   ],
   template: `
-    <div class="space-y-6" >
+    <div class="space-y-6" *transloco="let t; prefix: 'gmn'">
       <!-- Header -->
       <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 class="text-2xl font-bold tracking-tight">תשלומים</h1>
-          <p class="text-muted-foreground">ניהול תשלומים ותקבולים</p>
+          <h1 class="text-2xl font-bold tracking-tight">{{ t('payments.title') }}</h1>
+          <p class="text-muted-foreground">{{ t('payments.subtitle') }}</p>
         </div>
         <button hlmBtn routerLink="/gmn/payments/new">
           <ng-icon name="lucidePlus" class="me-2 h-4 w-4" />
-          רישום תשלום
+          {{ t('payments.newPayment') }}
         </button>
       </div>
 
@@ -75,7 +75,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideCheckCircle" class="h-5 w-5" />
             </div>
             <div>
-              <p class="text-sm text-muted-foreground">שולמו</p>
+              <p class="text-sm text-muted-foreground">{{ t('payments.status.completed') }}</p>
               <p class="text-xl font-bold">{{ paidCount() }}</p>
             </div>
           </div>
@@ -86,7 +86,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideClock" class="h-5 w-5" />
             </div>
             <div>
-              <p class="text-sm text-muted-foreground">ממתינים</p>
+              <p class="text-sm text-muted-foreground">{{ t('payments.status.pending') }}</p>
               <p class="text-xl font-bold">{{ pendingCount() }}</p>
             </div>
           </div>
@@ -97,7 +97,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideAlertCircle" class="h-5 w-5" />
             </div>
             <div>
-              <p class="text-sm text-muted-foreground">באיחור</p>
+              <p class="text-sm text-muted-foreground">{{ t('loans.payments.late') }}</p>
               <p class="text-xl font-bold">{{ overdueCount() }}</p>
             </div>
           </div>
@@ -108,7 +108,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideCreditCard" class="h-5 w-5" />
             </div>
             <div>
-              <p class="text-sm text-muted-foreground">לגבייה החודש</p>
+              <p class="text-sm text-muted-foreground">{{ t('payments.stats.thisMonth') }}</p>
               <p class="text-xl font-bold">₪{{ formatNumber(toCollectThisMonth()) }}</p>
             </div>
           </div>
@@ -123,7 +123,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
             <input
               hlmInput
               type="text"
-              placeholder="חיפוש..."
+              [placeholder]="t('common.searchPlaceholder')"
               class="w-full ps-10"
               [(ngModel)]="searchQuery"
             />
@@ -131,21 +131,21 @@ import { GmnMockService } from '../../../../core/services/mock-data';
 
           <brn-select [(ngModel)]="statusFilter" class="w-[180px]">
             <hlm-select-trigger>
-              <hlm-select-value placeholder="סטטוס" />
+              <hlm-select-value [placeholder]="t('common.status')" />
             </hlm-select-trigger>
             <hlm-select-content>
-              <hlm-select-item value="">הכל</hlm-select-item>
-              <hlm-select-item value="PAID">שולם</hlm-select-item>
-              <hlm-select-item value="PENDING">ממתין</hlm-select-item>
-              <hlm-select-item value="OVERDUE">באיחור</hlm-select-item>
-              <hlm-select-item value="PARTIAL">חלקי</hlm-select-item>
+              <hlm-select-item value="">{{ t('common.all') }}</hlm-select-item>
+              <hlm-select-item value="PAID">{{ t('loans.payments.paid') }}</hlm-select-item>
+              <hlm-select-item value="PENDING">{{ t('payments.status.pending') }}</hlm-select-item>
+              <hlm-select-item value="OVERDUE">{{ t('loans.payments.late') }}</hlm-select-item>
+              <hlm-select-item value="PARTIAL">{{ t('loans.payments.partial') }}</hlm-select-item>
             </hlm-select-content>
           </brn-select>
 
           @if (searchQuery() || statusFilter()) {
             <button hlmBtn variant="ghost" size="sm" (click)="clearFilters()">
               <ng-icon name="lucideX" class="me-1 h-4 w-4" />
-              נקה מסננים
+              {{ t('common.filter') }}
             </button>
           }
         </div>
@@ -157,13 +157,13 @@ import { GmnMockService } from '../../../../core/services/mock-data';
           <table class="w-full">
             <thead>
               <tr class="border-b bg-muted/50">
-                <th class="p-3 text-start font-medium">תאריך יעד</th>
-                <th class="p-3 text-start font-medium">הלוואה</th>
-                <th class="p-3 text-start font-medium">שם</th>
-                <th class="p-3 text-start font-medium">סכום</th>
-                <th class="p-3 text-start font-medium">תאריך תשלום</th>
-                <th class="p-3 text-start font-medium">סטטוס</th>
-                <th class="p-3 text-center font-medium">פעולות</th>
+                <th class="p-3 text-start font-medium">{{ t('payments.fields.dueDate') }}</th>
+                <th class="p-3 text-start font-medium">{{ t('loans.title') }}</th>
+                <th class="p-3 text-start font-medium">{{ t('common.name') }}</th>
+                <th class="p-3 text-start font-medium">{{ t('common.amount') }}</th>
+                <th class="p-3 text-start font-medium">{{ t('payments.fields.paidDate') }}</th>
+                <th class="p-3 text-start font-medium">{{ t('common.status') }}</th>
+                <th class="p-3 text-center font-medium">{{ t('common.actions') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -205,7 +205,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
                 <tr>
                   <td colspan="7" class="p-8 text-center text-muted-foreground">
                     <ng-icon name="lucideCreditCard" class="mx-auto mb-2 h-12 w-12 opacity-50" />
-                    <p>לא נמצאו תשלומים</p>
+                    <p>{{ t('common.noData') }}</p>
                   </td>
                 </tr>
               }
@@ -217,13 +217,13 @@ import { GmnMockService } from '../../../../core/services/mock-data';
         @if (totalPages() > 1) {
           <div class="flex items-center justify-between border-t p-4">
             <p class="text-sm text-muted-foreground">
-              מציג {{ startIndex() + 1 }}-{{ endIndex() }} מתוך {{ filteredPayments().length }} תשלומים
+              {{ startIndex() + 1 }}-{{ endIndex() }} / {{ filteredPayments().length }}
             </p>
             <div class="flex items-center gap-2">
               <button hlmBtn variant="outline" size="icon" [disabled]="currentPage() === 1" (click)="goToPage(currentPage() - 1)">
                 <ng-icon name="lucideChevronRight" class="h-4 w-4" />
               </button>
-              <span class="px-3 text-sm">עמוד {{ currentPage() }} מתוך {{ totalPages() }}</span>
+              <span class="px-3 text-sm">{{ currentPage() }} / {{ totalPages() }}</span>
               <button hlmBtn variant="outline" size="icon" [disabled]="currentPage() === totalPages()" (click)="goToPage(currentPage() + 1)">
                 <ng-icon name="lucideChevronLeft" class="h-4 w-4" />
               </button>
@@ -237,6 +237,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
 export default class PaymentsListPage {
   private readonly mockService = inject(GmnMockService);
   private readonly router = inject(Router);
+  private readonly transloco = inject(TranslocoService);
 
   searchQuery = signal('');
   statusFilter = signal('');
@@ -290,7 +291,8 @@ export default class PaymentsListPage {
 
   getPersonName(personId: number): string {
     const person = this.mockService.persons().find(p => p.id === personId);
-    return person?.fullName || `${person?.firstName} ${person?.lastName}` || 'לא ידוע';
+    if (!person) return this.transloco.translate('gmn.common.noData');
+    return person.fullName || `${person.firstName} ${person.lastName}`;
   }
 
   formatNumber(num: number): string {
@@ -312,13 +314,14 @@ export default class PaymentsListPage {
   }
 
   getStatusName(status: string): string {
-    const names: Record<string, string> = {
-      'PAID': 'שולם',
-      'PENDING': 'ממתין',
-      'OVERDUE': 'באיחור',
-      'PARTIAL': 'חלקי',
+    const key = status.toLowerCase();
+    const keyMap: Record<string, string> = {
+      'paid': 'gmn.loans.payments.paid',
+      'pending': 'gmn.payments.status.pending',
+      'overdue': 'gmn.loans.payments.late',
+      'partial': 'gmn.loans.payments.partial',
     };
-    return names[status] || status;
+    return this.transloco.translate(keyMap[key] || status);
   }
 
   clearFilters(): void {

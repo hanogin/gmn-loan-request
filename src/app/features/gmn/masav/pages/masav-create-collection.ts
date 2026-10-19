@@ -20,22 +20,22 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
     provideIcons({ lucideArrowRight, lucideConstruction }),
   ],
   template: `
-    <div class="space-y-6" >
+    <div class="space-y-6" *transloco="let t; prefix: 'gmn'">
       <div class="flex items-center gap-4">
         <button hlmBtn variant="outline" size="icon" routerLink="/gmn/masav">
           <ng-icon name="lucideArrowRight" class="h-4 w-4" />
         </button>
         <div>
-          <h1 class="text-2xl font-bold">יצירת קובץ גביה</h1>
-          <p class="text-muted-foreground">הפקת קובץ לגביית תשלומי הלוואות</p>
+          <h1 class="text-2xl font-bold">{{ t('masav.collection.title') }}</h1>
+          <p class="text-muted-foreground">{{ t('masav.dashboard.createCollection') }}</p>
         </div>
       </div>
 
       <div hlmCard class="p-8 text-center">
         <ng-icon name="lucideConstruction" class="mx-auto mb-4 h-16 w-16 text-amber-500" />
-        <h2 class="text-xl font-semibold mb-2">בפיתוח</h2>
-        <p class="text-muted-foreground">יצירת קובץ גביה תהיה זמינה בקרוב</p>
-        <button hlmBtn class="mt-4" routerLink="/gmn/masav">חזרה</button>
+        <h2 class="text-xl font-semibold mb-2">{{ t('common.inDevelopment') }}</h2>
+        <p class="text-muted-foreground">{{ t('common.comingSoon') }}</p>
+        <button hlmBtn class="mt-4" routerLink="/gmn/masav">{{ t('common.back') }}</button>
       </div>
     </div>
   `,

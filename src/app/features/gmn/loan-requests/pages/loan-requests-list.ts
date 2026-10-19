@@ -1,7 +1,7 @@
 import { Component, inject, signal, computed } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { TranslocoModule } from '@jsverse/transloco';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
   lucideFileText,
@@ -59,19 +59,19 @@ import { LoanRequest, LoanRequestStatus } from '../../../../core/models';
     }),
   ],
   template: `
-    <div class="space-y-6" >
+    <div class="space-y-6" *transloco="let t; prefix: 'gmn'">
       <!-- Page Header -->
       <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 class="flex items-center gap-2 text-2xl font-bold tracking-tight">
             <ng-icon name="lucideFileText" class="h-6 w-6" />
-            בקשות הלוואה
+            {{ t('loanRequests.title') }}
           </h1>
-          <p class="text-muted-foreground">ניהול בקשות הלוואה חדשות וקיימות</p>
+          <p class="text-muted-foreground">{{ t('loanRequests.subtitle') }}</p>
         </div>
         <button hlmBtn routerLink="/gmn/loan-requests/new">
           <ng-icon name="lucidePlus" class="me-2 h-4 w-4" />
-          בקשה חדשה
+          {{ t('loanRequests.newRequest') }}
         </button>
       </div>
 
@@ -84,7 +84,7 @@ import { LoanRequest, LoanRequestStatus } from '../../../../core/models';
             </div>
             <div>
               <p class="text-2xl font-bold">{{ pendingCount() }}</p>
-              <p class="text-sm text-muted-foreground">ממתינות לטיפול</p>
+              <p class="text-sm text-muted-foreground">{{ t('loanRequests.status.pending') }}</p>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@ import { LoanRequest, LoanRequestStatus } from '../../../../core/models';
             </div>
             <div>
               <p class="text-2xl font-bold">{{ pendingApprovalCount() }}</p>
-              <p class="text-sm text-muted-foreground">ממתינות לאישור</p>
+              <p class="text-sm text-muted-foreground">{{ t('loanRequests.status.inReview') }}</p>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@ import { LoanRequest, LoanRequestStatus } from '../../../../core/models';
             </div>
             <div>
               <p class="text-2xl font-bold">{{ approvedCount() }}</p>
-              <p class="text-sm text-muted-foreground">אושרו</p>
+              <p class="text-sm text-muted-foreground">{{ t('loanRequests.status.approved') }}</p>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ import { LoanRequest, LoanRequestStatus } from '../../../../core/models';
             </div>
             <div>
               <p class="text-2xl font-bold">{{ totalRequests() }}</p>
-              <p class="text-sm text-muted-foreground">סה"כ השנה</p>
+              <p class="text-sm text-muted-foreground">{{ t('loanRequests.stats.thisMonth') }}</p>
             </div>
           </div>
         </div>
@@ -131,23 +131,23 @@ import { LoanRequest, LoanRequestStatus } from '../../../../core/models';
             <input
               hlmInput
               type="text"
-              placeholder="חיפוש לפי מספר בקשה, שם..."
+              [placeholder]="t('loanRequests.searchPlaceholder')"
               class="w-full ps-10"
               [(ngModel)]="searchQuery"
             />
           </div>
           <div class="flex flex-wrap gap-2">
             <button hlmBtn [variant]="activeFilter() === 'ALL' ? 'default' : 'outline'" size="sm" (click)="setFilter('ALL')">
-              הכל
+              {{ t('common.all') }}
             </button>
             <button hlmBtn [variant]="activeFilter() === 'PENDING' ? 'default' : 'outline'" size="sm" (click)="setFilter('PENDING')">
-              ממתינות
+              {{ t('loanRequests.status.pending') }}
             </button>
             <button hlmBtn [variant]="activeFilter() === 'APPROVED' ? 'default' : 'outline'" size="sm" (click)="setFilter('APPROVED')">
-              אושרו
+              {{ t('loanRequests.status.approved') }}
             </button>
             <button hlmBtn [variant]="activeFilter() === 'REJECTED' ? 'default' : 'outline'" size="sm" (click)="setFilter('REJECTED')">
-              נדחו
+              {{ t('loanRequests.status.rejected') }}
             </button>
           </div>
         </div>
@@ -159,13 +159,13 @@ import { LoanRequest, LoanRequestStatus } from '../../../../core/models';
           <table hlmTable class="w-full">
             <thead>
               <tr hlmTrow>
-                <th hlmTh class="text-start">מספר בקשה</th>
-                <th hlmTh class="text-start">שם המבקש</th>
-                <th hlmTh class="text-start">סכום</th>
-                <th hlmTh class="text-start">מטרה</th>
-                <th hlmTh class="text-start">תאריך</th>
-                <th hlmTh class="text-start">סטטוס</th>
-                <th hlmTh class="text-center w-[100px]">פעולות</th>
+                <th hlmTh class="text-start">{{ t('loanRequests.fields.requestNumber') }}</th>
+                <th hlmTh class="text-start">{{ t('loanRequests.fields.applicant') }}</th>
+                <th hlmTh class="text-start">{{ t('common.amount') }}</th>
+                <th hlmTh class="text-start">{{ t('loanRequests.fields.purpose') }}</th>
+                <th hlmTh class="text-start">{{ t('common.date') }}</th>
+                <th hlmTh class="text-start">{{ t('common.status') }}</th>
+                <th hlmTh class="text-center w-[100px]">{{ t('common.actions') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -173,12 +173,12 @@ import { LoanRequest, LoanRequestStatus } from '../../../../core/models';
                 <tr hlmTrow class="cursor-pointer hover:bg-muted/50" (click)="viewRequest(request.id)">
                   <td hlmTd class="font-mono">{{ request.requestNumber }}</td>
                   <td hlmTd>{{ getPersonName(request.personId) }}</td>
-                  <td hlmTd class="font-medium">₪{{ formatNumber(request.requestedAmount) }}</td>
+                  <td hlmTd class="font-medium">{{ t('common.currency') }}{{ formatNumber(request.requestedAmount) }}</td>
                   <td hlmTd>{{ request.purposeName }}</td>
                   <td hlmTd class="text-sm">{{ formatDate(request.requestDate) }}</td>
                   <td hlmTd>
                     <span hlmBadge [variant]="getStatusVariant(request.status)">
-                      {{ request.statusName }}
+                      {{ getStatusTranslation(request.status) }}
                     </span>
                   </td>
                   <td hlmTd class="text-center" (click)="$event.stopPropagation()">
@@ -200,7 +200,7 @@ import { LoanRequest, LoanRequestStatus } from '../../../../core/models';
               } @empty {
                 <tr hlmTrow>
                   <td hlmTd colspan="7" class="py-8 text-center text-muted-foreground">
-                    לא נמצאו בקשות הלוואה
+                    {{ t('common.noData') }}
                   </td>
                 </tr>
               }
@@ -211,15 +211,15 @@ import { LoanRequest, LoanRequestStatus } from '../../../../core/models';
         <!-- Pagination -->
         <div class="flex items-center justify-between border-t p-4">
           <div class="text-sm text-muted-foreground">
-            מציג {{ startIndex() + 1 }}-{{ endIndex() }} מתוך {{ filteredRequests().length }}
+            {{ startIndex() + 1 }}-{{ endIndex() }} / {{ filteredRequests().length }}
           </div>
           <div class="flex items-center gap-2">
             <button hlmBtn variant="outline" size="sm" [disabled]="currentPage() === 1" (click)="previousPage()">
-              <ng-icon name="lucideChevronRight" class="h-4 w-4" />
-            </button>
-            <span class="px-2 text-sm">עמוד {{ currentPage() }} מתוך {{ totalPages() }}</span>
-            <button hlmBtn variant="outline" size="sm" [disabled]="currentPage() === totalPages()" (click)="nextPage()">
               <ng-icon name="lucideChevronLeft" class="h-4 w-4" />
+            </button>
+            <span class="px-2 text-sm">{{ currentPage() }} / {{ totalPages() }}</span>
+            <button hlmBtn variant="outline" size="sm" [disabled]="currentPage() === totalPages()" (click)="nextPage()">
+              <ng-icon name="lucideChevronRight" class="h-4 w-4" />
             </button>
           </div>
         </div>
@@ -230,6 +230,7 @@ import { LoanRequest, LoanRequestStatus } from '../../../../core/models';
 export default class LoanRequestsList {
   private readonly mockService = inject(GmnMockService);
   private readonly router = inject(Router);
+  private readonly transloco = inject(TranslocoService);
 
   searchQuery = '';
   readonly activeFilter = signal<'ALL' | 'PENDING' | 'APPROVED' | 'REJECTED'>('ALL');
@@ -307,12 +308,12 @@ export default class LoanRequestsList {
   }
 
   async rejectRequest(request: LoanRequest): Promise<void> {
-    await this.mockService.updateLoanRequestStatus(request.id, 'REJECTED', 'נדחה');
+    await this.mockService.updateLoanRequestStatus(request.id, 'REJECTED', 'Rejected');
   }
 
   getPersonName(personId: number): string {
     const person = this.mockService.persons().find(p => p.id === personId);
-    return person?.fullName || person?.firstName + ' ' + person?.lastName || 'לא ידוע';
+    return person?.fullName || person?.firstName + ' ' + person?.lastName || '—';
   }
 
   formatNumber(num: number): string {
@@ -336,5 +337,20 @@ export default class LoanRequestsList {
       default:
         return 'outline';
     }
+  }
+
+  getStatusTranslation(status: string): string {
+    const statusMap: Record<string, string> = {
+      'APPROVED': 'loanRequests.status.approved',
+      'REJECTED': 'loanRequests.status.rejected',
+      'PENDING_APPROVAL': 'loanRequests.status.inReview',
+      'PENDING_DOCUMENTS': 'loanRequests.status.pending',
+      'PENDING_INTERVIEW': 'loanRequests.status.inReview',
+      'PENDING_GUARANTORS': 'loanRequests.status.pending',
+      'CONVERTED_TO_LOAN': 'loanRequests.status.converted',
+      'CANCELLED': 'loanRequests.status.cancelled',
+      'DRAFT': 'loanRequests.status.pending',
+    };
+    return this.transloco.translate(`gmn.${statusMap[status] || 'loanRequests.status.pending'}`);
   }
 }

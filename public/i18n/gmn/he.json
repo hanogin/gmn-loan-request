@@ -44,7 +44,13 @@
         "to": "עד",
         "export": "ייצוא",
         "print": "הדפסה",
-        "refresh": "רענון"
+        "refresh": "רענון",
+        "inDevelopment": "בפיתוח",
+        "comingSoon": "יהיה זמין בקרוב",
+        "clearFilters": "נקה מסננים",
+        "showing": "מציג",
+        "of": "מתוך",
+        "page": "עמוד"
     },
     "dashboard": {
         "title": "לוח בקרה",

@@ -38,11 +38,11 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
     }),
   ],
   template: `
-    <div class="space-y-6" >
+    <div class="space-y-6" *transloco="let t; prefix: 'gmn'">
       <!-- Header -->
       <div>
-        <h1 class="text-2xl font-bold tracking-tight">דוחות</h1>
-        <p class="text-muted-foreground">הפקת דוחות וניתוח נתונים</p>
+        <h1 class="text-2xl font-bold tracking-tight">{{ t('reports.title') }}</h1>
+        <p class="text-muted-foreground">{{ t('reports.subtitle') }}</p>
       </div>
 
       <!-- Report Categories -->
@@ -54,8 +54,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucideAlertCircle" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">דוח איחורים</h3>
-              <p class="text-sm text-muted-foreground">הלוואות עם תשלומים באיחור</p>
+              <h3 class="font-semibold">{{ t('reports.latePayments.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('dashboard.stats.latePayments') }}</p>
             </div>
           </div>
         </div>
@@ -67,8 +67,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucideCalculator" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">דוח רו"ח</h3>
-              <p class="text-sm text-muted-foreground">דוח להנהלת חשבונות ורואה חשבון</p>
+              <h3 class="font-semibold">{{ t('reports.cpa.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('accounting.title') }}</p>
             </div>
           </div>
         </div>
@@ -80,8 +80,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucideWallet" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">סיכום הלוואות</h3>
-              <p class="text-sm text-muted-foreground">סטטיסטיקה וסיכום הלוואות</p>
+              <h3 class="font-semibold">{{ t('reports.loansSummary.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('loans.title') }}</p>
             </div>
           </div>
         </div>
@@ -93,8 +93,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucidePiggyBank" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">סיכום פיקדונות</h3>
-              <p class="text-sm text-muted-foreground">סטטיסטיקה וסיכום פיקדונות</p>
+              <h3 class="font-semibold">{{ t('reports.savingsSummary.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('savings.title') }}</p>
             </div>
           </div>
         </div>
@@ -106,8 +106,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucideHeart" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">סיכום תרומות</h3>
-              <p class="text-sm text-muted-foreground">סטטיסטיקה וסיכום תרומות</p>
+              <h3 class="font-semibold">{{ t('reports.donationsSummary.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('donations.title') }}</p>
             </div>
           </div>
         </div>
@@ -119,8 +119,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucideTrendingUp" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">דוח פעילות</h3>
-              <p class="text-sm text-muted-foreground">בקרוב...</p>
+              <h3 class="font-semibold">{{ t('reports.types.cashFlow') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('common.comingSoon') }}</p>
             </div>
           </div>
         </div>

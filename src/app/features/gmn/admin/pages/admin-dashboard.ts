@@ -30,11 +30,11 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
     }),
   ],
   template: `
-    <div class="space-y-6" >
+    <div class="space-y-6" *transloco="let t; prefix: 'gmn'">
       <!-- Header -->
       <div>
-        <h1 class="text-2xl font-bold tracking-tight">ניהול מערכת</h1>
-        <p class="text-muted-foreground">הגדרות וניהול המערכת</p>
+        <h1 class="text-2xl font-bold tracking-tight">{{ t('admin.title') }}</h1>
+        <p class="text-muted-foreground">{{ t('admin.subtitle') }}</p>
       </div>
 
       <!-- Navigation Cards -->
@@ -45,8 +45,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucideUsers" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">ניהול משתמשים</h3>
-              <p class="text-sm text-muted-foreground">הוספה, עריכה והרשאות משתמשים</p>
+              <h3 class="font-semibold">{{ t('admin.users.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('admin.users.newUser') }}</p>
             </div>
           </div>
         </div>
@@ -57,8 +57,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucideList" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">טבלאות ערכים</h3>
-              <p class="text-sm text-muted-foreground">ניהול רשימות נפתחות וקודים</p>
+              <h3 class="font-semibold">{{ t('admin.lov.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('admin.lov.category') }}</p>
             </div>
           </div>
         </div>
@@ -69,8 +69,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucideSettings" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">הגדרות מערכת</h3>
-              <p class="text-sm text-muted-foreground">פרמטרים והגדרות כלליות</p>
+              <h3 class="font-semibold">{{ t('admin.settings.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('admin.settings.general') }}</p>
             </div>
           </div>
         </div>

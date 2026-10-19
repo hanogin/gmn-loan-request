@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslocoModule } from '@jsverse/transloco';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideArrowRight, lucideConstruction } from '@ng-icons/lucide';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
@@ -8,22 +9,23 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
 @Component({
   selector: 'gmn-loan-request-form',
   standalone: true,
-  imports: [RouterLink, NgIcon, HlmButtonImports, HlmCardImports],
+  imports: [TranslocoModule, NgIcon, RouterLink, HlmButtonImports, HlmCardImports],
   providers: [provideIcons({ lucideArrowRight, lucideConstruction })],
   template: `
-    <div class="space-y-6" >
-      <button hlmBtn variant="ghost" routerLink="/gmn/loan-requests">
-        <ng-icon name="lucideArrowRight" class="me-2 h-4 w-4" />
-        חזרה לרשימה
-      </button>
-      
-      <div hlmCard class="flex flex-col items-center justify-center py-20">
-        <ng-icon name="lucideConstruction" class="mb-4 h-16 w-16 text-muted-foreground" />
-        <h2 class="text-xl font-semibold">בקשת הלוואה חדשה</h2>
-        <p class="text-muted-foreground">מסך זה בפיתוח...</p>
-        <p class="mt-4 text-sm text-muted-foreground">בינתיים, השתמש ב<a routerLink="/loan-request" class="text-primary underline">טופס הבקשה המקוונת</a></p>
+    <div class="space-y-6" *transloco="let t; prefix: 'gmn'">
+      <div class="flex items-center gap-4">
+        <button hlmBtn variant="outline" size="icon" routerLink="/gmn/loan-requests">
+          <ng-icon name="lucideArrowRight" class="h-4 w-4" />
+        </button>
+        <h1 class="text-2xl font-bold">{{ t('loanRequests.newRequest') }}</h1>
+      </div>
+      <div hlmCard class="p-8 text-center">
+        <ng-icon name="lucideConstruction" class="mx-auto mb-4 h-16 w-16 text-amber-500" />
+        <h2 class="text-xl font-semibold mb-2">{{ t('common.inDevelopment') }}</h2>
+        <p class="text-muted-foreground">{{ t('common.comingSoon') }}</p>
+        <button hlmBtn class="mt-4" routerLink="/gmn/loan-requests">{{ t('common.back') }}</button>
       </div>
     </div>
   `,
 })
-export default class LoanRequestForm {}
+export default class LoanRequestFormPage {}

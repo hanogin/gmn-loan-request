@@ -30,11 +30,11 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
     }),
   ],
   template: `
-    <div class="space-y-6" >
+    <div class="space-y-6" *transloco="let t; prefix: 'gmn'">
       <!-- Header -->
       <div>
-        <h1 class="text-2xl font-bold tracking-tight">הנהלת חשבונות</h1>
-        <p class="text-muted-foreground">ניהול חשבונות ופקודות יומן</p>
+        <h1 class="text-2xl font-bold tracking-tight">{{ t('accounting.title') }}</h1>
+        <p class="text-muted-foreground">{{ t('accounting.subtitle') }}</p>
       </div>
 
       <!-- Navigation Cards -->
@@ -45,8 +45,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucideBookOpen" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">מפתח חשבונות</h3>
-              <p class="text-sm text-muted-foreground">ניהול חשבונות הנהלת החשבונות</p>
+              <h3 class="font-semibold">{{ t('accounting.chartOfAccounts.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('accounting.subtitle') }}</p>
             </div>
           </div>
         </div>
@@ -57,8 +57,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucideFileText" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">פקודות יומן</h3>
-              <p class="text-sm text-muted-foreground">צפייה ורישום פקודות יומן</p>
+              <h3 class="font-semibold">{{ t('accounting.journalEntries.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('common.view') }}</p>
             </div>
           </div>
         </div>
@@ -69,8 +69,8 @@ import { HlmCardImports } from '@spartan-ng/helm/card';
               <ng-icon name="lucideScale" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">מאזן בוחן</h3>
-              <p class="text-sm text-muted-foreground">הפקת מאזן בוחן לתקופה</p>
+              <h3 class="font-semibold">{{ t('accounting.trialBalance.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('accounting.trialBalance.asOf') }}</p>
             </div>
           </div>
         </div>

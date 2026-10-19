@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { TranslocoModule } from '@jsverse/transloco';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
   lucideSearch,
@@ -56,16 +56,16 @@ import { GmnMockService } from '../../../../core/services/mock-data';
     }),
   ],
   template: `
-    <div class="space-y-6" >
+    <div class="space-y-6" *transloco="let t; prefix: 'gmn'">
       <!-- Header -->
       <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 class="text-2xl font-bold tracking-tight">תרומות</h1>
-          <p class="text-muted-foreground">ניהול תרומות לגמ"ח</p>
+          <h1 class="text-2xl font-bold tracking-tight">{{ t('donations.title') }}</h1>
+          <p class="text-muted-foreground">{{ t('donations.subtitle') }}</p>
         </div>
         <button hlmBtn routerLink="/gmn/donations/new">
           <ng-icon name="lucidePlus" class="me-2 h-4 w-4" />
-          תרומה חדשה
+          {{ t('donations.newDonation') }}
         </button>
       </div>
 
@@ -77,7 +77,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideTrendingUp" class="h-5 w-5" />
             </div>
             <div>
-              <p class="text-sm text-muted-foreground">השנה</p>
+              <p class="text-sm text-muted-foreground">{{ t('reports.donationsSummary.totalAmount') }}</p>
               <p class="text-xl font-bold text-green-600">₪{{ formatNumber(thisYearTotal()) }}</p>
             </div>
           </div>
@@ -88,7 +88,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideCalendar" class="h-5 w-5" />
             </div>
             <div>
-              <p class="text-sm text-muted-foreground">החודש</p>
+              <p class="text-sm text-muted-foreground">{{ t('donations.stats.thisMonth') }}</p>
               <p class="text-xl font-bold">₪{{ formatNumber(thisMonthTotal()) }}</p>
             </div>
           </div>
@@ -99,7 +99,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideHeart" class="h-5 w-5" />
             </div>
             <div>
-              <p class="text-sm text-muted-foreground">סה"כ תרומות</p>
+              <p class="text-sm text-muted-foreground">{{ t('donations.stats.totalDonations') }}</p>
               <p class="text-xl font-bold">{{ totalDonations() }}</p>
             </div>
           </div>
@@ -110,7 +110,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideReceipt" class="h-5 w-5" />
             </div>
             <div>
-              <p class="text-sm text-muted-foreground">ממוצע תרומה</p>
+              <p class="text-sm text-muted-foreground">{{ t('donations.stats.averageDonation') }}</p>
               <p class="text-xl font-bold">₪{{ formatNumber(averageDonation()) }}</p>
             </div>
           </div>
@@ -125,31 +125,31 @@ import { GmnMockService } from '../../../../core/services/mock-data';
             <input
               hlmInput
               type="text"
-              placeholder="חיפוש לפי שם תורם..."
+              [placeholder]="t('donations.searchPlaceholder')"
               class="w-full ps-10"
               [(ngModel)]="searchQuery"
             />
           </div>
-          
+
           <brn-select [(ngModel)]="paymentMethodFilter" class="w-[180px]">
             <hlm-select-trigger>
-              <hlm-select-value placeholder="אמצעי תשלום" />
+              <hlm-select-value [placeholder]="t('donations.fields.paymentMethod')" />
             </hlm-select-trigger>
             <hlm-select-content>
-              <hlm-select-item value="">הכל</hlm-select-item>
-              <hlm-select-item value="CASH">מזומן</hlm-select-item>
-              <hlm-select-item value="CHECK">צ'ק</hlm-select-item>
-              <hlm-select-item value="TRANSFER">העברה</hlm-select-item>
-              <hlm-select-item value="CREDIT">אשראי</hlm-select-item>
+              <hlm-select-item value="">{{ t('common.all') }}</hlm-select-item>
+              <hlm-select-item value="CASH">{{ t('donations.paymentMethods.cash') }}</hlm-select-item>
+              <hlm-select-item value="CHECK">{{ t('donations.paymentMethods.check') }}</hlm-select-item>
+              <hlm-select-item value="TRANSFER">{{ t('donations.paymentMethods.bankTransfer') }}</hlm-select-item>
+              <hlm-select-item value="CREDIT">{{ t('donations.paymentMethods.creditCard') }}</hlm-select-item>
             </hlm-select-content>
           </brn-select>
 
           <brn-select [(ngModel)]="yearFilter" class="w-[140px]">
             <hlm-select-trigger>
-              <hlm-select-value placeholder="שנה" />
+              <hlm-select-value placeholder="Year" />
             </hlm-select-trigger>
             <hlm-select-content>
-              <hlm-select-item value="">הכל</hlm-select-item>
+              <hlm-select-item value="">{{ t('common.all') }}</hlm-select-item>
               <hlm-select-item value="2026">2026</hlm-select-item>
               <hlm-select-item value="2025">2025</hlm-select-item>
               <hlm-select-item value="2024">2024</hlm-select-item>
@@ -159,7 +159,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
           @if (searchQuery() || paymentMethodFilter() || yearFilter()) {
             <button hlmBtn variant="ghost" size="sm" (click)="clearFilters()">
               <ng-icon name="lucideX" class="me-1 h-4 w-4" />
-              נקה מסננים
+              {{ t('common.filter') }}
             </button>
           }
         </div>
@@ -171,13 +171,13 @@ import { GmnMockService } from '../../../../core/services/mock-data';
           <table class="w-full">
             <thead>
               <tr class="border-b bg-muted/50">
-                <th class="p-3 text-start font-medium">תאריך</th>
-                <th class="p-3 text-start font-medium">שם התורם</th>
-                <th class="p-3 text-start font-medium">סכום</th>
-                <th class="p-3 text-start font-medium">אמצעי תשלום</th>
-                <th class="p-3 text-start font-medium">ייעוד</th>
-                <th class="p-3 text-start font-medium">קבלה</th>
-                <th class="p-3 text-center font-medium">פעולות</th>
+                <th class="p-3 text-start font-medium">{{ t('common.date') }}</th>
+                <th class="p-3 text-start font-medium">{{ t('donations.fields.donor') }}</th>
+                <th class="p-3 text-start font-medium">{{ t('common.amount') }}</th>
+                <th class="p-3 text-start font-medium">{{ t('donations.fields.paymentMethod') }}</th>
+                <th class="p-3 text-start font-medium">{{ t('donations.fields.purpose') }}</th>
+                <th class="p-3 text-start font-medium">{{ t('donations.fields.receiptNumber') }}</th>
+                <th class="p-3 text-center font-medium">{{ t('common.actions') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -191,7 +191,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
                   </td>
                   <td class="p-3 font-semibold text-green-600">₪{{ formatNumber(donation.amount) }}</td>
                   <td class="p-3 text-sm">{{ donation.paymentMethodName || getPaymentMethodName(donation.paymentMethod) }}</td>
-                  <td class="p-3 text-sm text-muted-foreground">{{ donation.purposeName || donation.purpose || 'כללי' }}</td>
+                  <td class="p-3 text-sm text-muted-foreground">{{ donation.purposeName || donation.purpose || t('donations.types.oneTime') }}</td>
                   <td class="p-3">
                     @if (donation.receiptNumber) {
                       <span class="font-mono text-sm">{{ donation.receiptNumber }}</span>
@@ -214,7 +214,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
                 <tr>
                   <td colspan="7" class="p-8 text-center text-muted-foreground">
                     <ng-icon name="lucideHeart" class="mx-auto mb-2 h-12 w-12 opacity-50" />
-                    <p>לא נמצאו תרומות</p>
+                    <p>{{ t('common.noData') }}</p>
                   </td>
                 </tr>
               }
@@ -226,13 +226,13 @@ import { GmnMockService } from '../../../../core/services/mock-data';
         @if (totalPages() > 1) {
           <div class="flex items-center justify-between border-t p-4">
             <p class="text-sm text-muted-foreground">
-              מציג {{ startIndex() + 1 }}-{{ endIndex() }} מתוך {{ filteredDonations().length }} תרומות
+              {{ startIndex() + 1 }}-{{ endIndex() }} / {{ filteredDonations().length }}
             </p>
             <div class="flex items-center gap-2">
               <button hlmBtn variant="outline" size="icon" [disabled]="currentPage() === 1" (click)="goToPage(currentPage() - 1)">
                 <ng-icon name="lucideChevronRight" class="h-4 w-4" />
               </button>
-              <span class="px-3 text-sm">עמוד {{ currentPage() }} מתוך {{ totalPages() }}</span>
+              <span class="px-3 text-sm">{{ currentPage() }} / {{ totalPages() }}</span>
               <button hlmBtn variant="outline" size="icon" [disabled]="currentPage() === totalPages()" (click)="goToPage(currentPage() + 1)">
                 <ng-icon name="lucideChevronLeft" class="h-4 w-4" />
               </button>
@@ -246,6 +246,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
 export default class DonationsListPage {
   private readonly mockService = inject(GmnMockService);
   private readonly router = inject(Router);
+  private readonly transloco = inject(TranslocoService);
 
   searchQuery = signal('');
   paymentMethodFilter = signal('');
@@ -278,7 +279,7 @@ export default class DonationsListPage {
 
   readonly filteredDonations = computed(() => {
     let donations = this.mockService.donations();
-    
+
     if (this.searchQuery()) {
       const query = this.searchQuery().toLowerCase();
       donations = donations.filter(donation => {
@@ -287,7 +288,7 @@ export default class DonationsListPage {
         return personName.includes(query);
       });
     }
-    
+
     if (this.paymentMethodFilter()) {
       donations = donations.filter(d => d.paymentMethod === this.paymentMethodFilter());
     }
@@ -296,21 +297,22 @@ export default class DonationsListPage {
       const year = parseInt(this.yearFilter());
       donations = donations.filter(d => new Date(d.donationDate).getFullYear() === year);
     }
-    
+
     return donations.sort((a, b) => new Date(b.donationDate).getTime() - new Date(a.donationDate).getTime());
   });
 
   readonly totalPages = computed(() => Math.ceil(this.filteredDonations().length / this.pageSize));
   readonly startIndex = computed(() => (this.currentPage() - 1) * this.pageSize);
   readonly endIndex = computed(() => Math.min(this.startIndex() + this.pageSize, this.filteredDonations().length));
-  
-  readonly paginatedDonations = computed(() => 
+
+  readonly paginatedDonations = computed(() =>
     this.filteredDonations().slice(this.startIndex(), this.endIndex())
   );
 
   getPersonName(personId: number): string {
     const person = this.mockService.persons().find(p => p.id === personId);
-    return person?.fullName || `${person?.firstName} ${person?.lastName}` || 'לא ידוע';
+    if (!person) return this.transloco.translate('gmn.common.noData');
+    return person.fullName || `${person.firstName} ${person.lastName}`;
   }
 
   formatNumber(num: number): string {
@@ -322,14 +324,14 @@ export default class DonationsListPage {
   }
 
   getPaymentMethodName(method: string): string {
-    const names: Record<string, string> = {
-      'CASH': 'מזומן',
-      'CHECK': 'צ\'ק',
-      'TRANSFER': 'העברה',
-      'CREDIT': 'אשראי',
-      'MASAV': 'מס"ב',
+    const keyMap: Record<string, string> = {
+      'CASH': 'gmn.donations.paymentMethods.cash',
+      'CHECK': 'gmn.donations.paymentMethods.check',
+      'TRANSFER': 'gmn.donations.paymentMethods.bankTransfer',
+      'CREDIT': 'gmn.donations.paymentMethods.creditCard',
+      'MASAV': 'gmn.masav.title',
     };
-    return names[method] || method;
+    return this.transloco.translate(keyMap[method] || method);
   }
 
   clearFilters(): void {

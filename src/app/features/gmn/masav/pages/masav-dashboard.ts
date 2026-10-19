@@ -38,12 +38,12 @@ import { GmnMockService } from '../../../../core/services/mock-data';
     }),
   ],
   template: `
-    <div class="space-y-6" >
+    <div class="space-y-6" *transloco="let t; prefix: 'gmn'">
       <!-- Header -->
       <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 class="text-2xl font-bold tracking-tight">מס"ב</h1>
-          <p class="text-muted-foreground">ניהול קבצי מס"ב - גביות ותשלומים</p>
+          <h1 class="text-2xl font-bold tracking-tight">{{ t('masav.title') }}</h1>
+          <p class="text-muted-foreground">{{ t('masav.subtitle') }}</p>
         </div>
       </div>
 
@@ -56,23 +56,23 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideFileDown" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">יצירת קובץ גביה</h3>
-              <p class="text-sm text-muted-foreground">הפקת קובץ לגביית תשלומי הלוואות</p>
+              <h3 class="font-semibold">{{ t('masav.collection.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('masav.dashboard.createCollection') }}</p>
             </div>
           </div>
           <div class="space-y-2 text-sm text-muted-foreground mb-4">
             <div class="flex justify-between">
-              <span>תשלומים לחודש הבא:</span>
+              <span>{{ t('masav.stats.pendingCollections') }}:</span>
               <span class="font-semibold text-foreground">{{ nextMonthPayments() }}</span>
             </div>
             <div class="flex justify-between">
-              <span>סכום לגבייה:</span>
+              <span>{{ t('common.amount') }}:</span>
               <span class="font-semibold text-foreground">₪{{ formatNumber(nextMonthAmount()) }}</span>
             </div>
           </div>
           <button hlmBtn class="w-full" routerLink="/gmn/masav/create-collection">
             <ng-icon name="lucidePlus" class="me-2 h-4 w-4" />
-            צור קובץ גביה
+            {{ t('masav.collection.generate') }}
           </button>
         </div>
 
@@ -83,23 +83,23 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideFileUp" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">יצירת קובץ תשלום</h3>
-              <p class="text-sm text-muted-foreground">הפקת קובץ לתשלום ריביות פיקדונות</p>
+              <h3 class="font-semibold">{{ t('masav.payment.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('masav.dashboard.createPayment') }}</p>
             </div>
           </div>
           <div class="space-y-2 text-sm text-muted-foreground mb-4">
             <div class="flex justify-between">
-              <span>פיקדונות פעילים:</span>
+              <span>{{ t('savings.stats.activeSavings') }}:</span>
               <span class="font-semibold text-foreground">{{ activeSavings() }}</span>
             </div>
             <div class="flex justify-between">
-              <span>סכום לתשלום:</span>
+              <span>{{ t('common.amount') }}:</span>
               <span class="font-semibold text-foreground">₪{{ formatNumber(monthlyInterest()) }}</span>
             </div>
           </div>
           <button hlmBtn variant="outline" class="w-full" routerLink="/gmn/masav/create-payment">
             <ng-icon name="lucidePlus" class="me-2 h-4 w-4" />
-            צור קובץ תשלום
+            {{ t('masav.payment.generate') }}
           </button>
         </div>
 
@@ -110,47 +110,47 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               <ng-icon name="lucideHistory" class="h-6 w-6" />
             </div>
             <div>
-              <h3 class="font-semibold">היסטוריית קבצים</h3>
-              <p class="text-sm text-muted-foreground">צפייה בקבצים שנוצרו</p>
+              <h3 class="font-semibold">{{ t('masav.files.title') }}</h3>
+              <p class="text-sm text-muted-foreground">{{ t('masav.dashboard.viewFiles') }}</p>
             </div>
           </div>
           <div class="space-y-2 text-sm text-muted-foreground mb-4">
             <div class="flex justify-between">
-              <span>קבצים השנה:</span>
+              <span>{{ t('masav.stats.thisMonth') }}:</span>
               <span class="font-semibold text-foreground">{{ filesThisYear() }}</span>
             </div>
             <div class="flex justify-between">
-              <span>קובץ אחרון:</span>
+              <span>{{ t('common.date') }}:</span>
               <span class="font-semibold text-foreground">{{ lastFileDate() }}</span>
             </div>
           </div>
           <button hlmBtn variant="outline" class="w-full" routerLink="/gmn/masav/files">
             <ng-icon name="lucideHistory" class="me-2 h-4 w-4" />
-            צפה בהיסטוריה
+            {{ t('masav.dashboard.viewFiles') }}
           </button>
         </div>
       </div>
 
       <!-- Instructions -->
       <div hlmCard class="p-6">
-        <h3 class="font-semibold mb-4">הוראות שימוש</h3>
+        <h3 class="font-semibold mb-4">{{ t('common.details') }}</h3>
         <div class="grid gap-4 sm:grid-cols-2">
           <div class="space-y-2">
-            <h4 class="font-medium text-sm">קובץ גביה</h4>
+            <h4 class="font-medium text-sm">{{ t('masav.fileTypes.collection') }}</h4>
             <ol class="list-decimal list-inside text-sm text-muted-foreground space-y-1">
-              <li>בחר את החודש לגביה</li>
-              <li>בדוק את רשימת התשלומים</li>
-              <li>צור את הקובץ</li>
-              <li>העלה לבנק דרך מערכת מס"ב</li>
+              <li>{{ t('masav.collection.selectPayments') }}</li>
+              <li>{{ t('masav.collection.executionDate') }}</li>
+              <li>{{ t('masav.collection.generate') }}</li>
+              <li>{{ t('masav.files.upload') }}</li>
             </ol>
           </div>
           <div class="space-y-2">
-            <h4 class="font-medium text-sm">קובץ תשלום</h4>
+            <h4 class="font-medium text-sm">{{ t('masav.fileTypes.payment') }}</h4>
             <ol class="list-decimal list-inside text-sm text-muted-foreground space-y-1">
-              <li>בחר את החודש לתשלום</li>
-              <li>בדוק את רשימת הפיקדונות</li>
-              <li>צור את הקובץ</li>
-              <li>העלה לבנק דרך מערכת מס"ב</li>
+              <li>{{ t('masav.payment.selectPayments') }}</li>
+              <li>{{ t('masav.payment.executionDate') }}</li>
+              <li>{{ t('masav.payment.generate') }}</li>
+              <li>{{ t('masav.files.upload') }}</li>
             </ol>
           </div>
         </div>

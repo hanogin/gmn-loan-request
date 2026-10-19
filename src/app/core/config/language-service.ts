@@ -2,11 +2,11 @@ import { isPlatformBrowser, registerLocaleData } from '@angular/common';
 import { afterNextRender, computed, DOCUMENT, effect, inject, PLATFORM_ID, Service, signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 import { BrnCalendarI18n, injectBrnCalendarI18n } from '@spartan-ng/brain/calendar';
-import { arabicCalendarI18n, englishCalendarI18n, frenchCalendarI18n } from './date-i18n';
+import { englishCalendarI18n, hebrewCalendarI18n } from './date-i18n';
 import { DirectionalityService } from './directionality-service';
 import { LOCAL_STORAGE } from './tokens';
 
-export const LANGUAGES = ['en', 'fr', 'ar', 'he'] as const;
+export const LANGUAGES = ['en', 'he'] as const;
 export type Language = (typeof LANGUAGES)[number];
 
 export interface AvailableLanguage {
@@ -33,14 +33,6 @@ export class LanguageService {
       label: 'English',
     },
     {
-      code: 'fr',
-      label: 'Français',
-    },
-    {
-      code: 'ar',
-      label: 'العربية',
-    },
-    {
       code: 'he',
       label: 'עברית',
     },
@@ -49,14 +41,12 @@ export class LanguageService {
 
   private readonly brnCalendarI18nMap: Record<Language, Partial<BrnCalendarI18n>> = {
     en: englishCalendarI18n,
-    fr: frenchCalendarI18n,
-    ar: arabicCalendarI18n,
-    he: englishCalendarI18n, // Using English calendar i18n for Hebrew for now
+    he: hebrewCalendarI18n,
   };
 
   constructor() {
     // Keep <html lang> in sync with the active language (index.html hardcodes
-    // "en") so screen readers pick the right speech synthesis for fr/ar.
+    // "en") so screen readers pick the right speech synthesis.
     effect(() => {
       const lang = this.currentLang();
       if (isPlatformBrowser(this._platformId)) {
@@ -66,7 +56,7 @@ export class LanguageService {
 
     afterNextRender(() => {
       const browserLang = navigator.language?.split('-')[0];
-      if (browserLang && browserLang === 'ar') {
+      if (browserLang && browserLang === 'he') {
         this._dir.updateDirection('rtl');
       }
     });
@@ -77,20 +67,14 @@ export class LanguageService {
     this._localStorage?.setItem('lang', lang);
     await this._ensureLocaleRegistered(lang);
     this._translocoService.setActiveLang(lang);
-    const direction = (lang === 'ar' || lang === 'he') ? 'rtl' : 'ltr';
+    const direction = lang === 'he' ? 'rtl' : 'ltr';
     this._dir.updateDirection(direction);
   }
 
   private async _ensureLocaleRegistered(lang: Language): Promise<void> {
     if (registeredLocales.has(lang)) return;
 
-    if (lang === 'fr') {
-      const localeFr = (await import('@angular/common/locales/fr')).default;
-      registerLocaleData(localeFr, 'fr');
-    } else if (lang === 'ar') {
-      const localeAr = (await import('@angular/common/locales/ar')).default;
-      registerLocaleData(localeAr, 'ar');
-    } else if (lang === 'he') {
+    if (lang === 'he') {
       const localeHe = (await import('@angular/common/locales/he')).default;
       registerLocaleData(localeHe, 'he');
     }

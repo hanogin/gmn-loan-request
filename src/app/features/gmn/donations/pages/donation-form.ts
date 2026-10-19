@@ -1,7 +1,7 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { TranslocoModule } from '@jsverse/transloco';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
   lucideArrowRight,
@@ -40,7 +40,7 @@ import { GmnMockService } from '../../../../core/services/mock-data';
     }),
   ],
   template: `
-    <div class="space-y-6" >
+    <div class="space-y-6" *transloco="let t; prefix: 'gmn'">
       <!-- Header -->
       <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div class="flex items-center gap-4">
@@ -48,9 +48,9 @@ import { GmnMockService } from '../../../../core/services/mock-data';
             <ng-icon name="lucideArrowRight" class="h-4 w-4" />
           </button>
           <div>
-            <h1 class="text-2xl font-bold">{{ isEditMode() ? 'עריכת תרומה' : 'תרומה חדשה' }}</h1>
+            <h1 class="text-2xl font-bold">{{ isEditMode() ? t('common.edit') : t('donations.newDonation') }}</h1>
             <p class="text-muted-foreground">
-              {{ isEditMode() ? 'עדכון פרטי התרומה' : 'רישום תרומה חדשה' }}
+              {{ t('donations.subtitle') }}
             </p>
           </div>
         </div>
@@ -61,13 +61,13 @@ import { GmnMockService } from '../../../../core/services/mock-data';
         <div class="grid gap-6 lg:grid-cols-2">
           <!-- Donor & Amount -->
           <div hlmCard class="p-6">
-            <h3 class="mb-4 font-semibold border-b pb-2">פרטי התרומה</h3>
+            <h3 class="mb-4 font-semibold border-b pb-2">{{ t('common.details') }}</h3>
             <div class="space-y-4">
               <div>
-                <label hlmLabel>תורם *</label>
+                <label hlmLabel>{{ t('donations.fields.donor') }} *</label>
                 <brn-select formControlName="personId" class="w-full">
                   <hlm-select-trigger class="w-full">
-                    <hlm-select-value placeholder="בחר תורם" />
+                    <hlm-select-value [placeholder]="t('donations.fields.donor')" />
                   </hlm-select-trigger>
                   <hlm-select-content>
                     @for (person of persons(); track person.id) {
@@ -80,27 +80,27 @@ import { GmnMockService } from '../../../../core/services/mock-data';
               </div>
 
               <div>
-                <label hlmLabel>סכום *</label>
+                <label hlmLabel>{{ t('common.amount') }} *</label>
                 <input hlmInput type="number" formControlName="amount" class="w-full" />
               </div>
 
               <div>
-                <label hlmLabel>תאריך תרומה *</label>
+                <label hlmLabel>{{ t('common.date') }} *</label>
                 <input hlmInput type="date" formControlName="donationDate" class="w-full" />
               </div>
 
               <div>
-                <label hlmLabel>ייעוד</label>
+                <label hlmLabel>{{ t('donations.fields.purpose') }}</label>
                 <brn-select formControlName="purpose" class="w-full">
                   <hlm-select-trigger class="w-full">
-                    <hlm-select-value placeholder="בחר ייעוד" />
+                    <hlm-select-value [placeholder]="t('donations.fields.purpose')" />
                   </hlm-select-trigger>
                   <hlm-select-content>
-                    <hlm-select-item value="">כללי</hlm-select-item>
-                    <hlm-select-item value="LOAN_FUND">קרן הלוואות</hlm-select-item>
-                    <hlm-select-item value="OPERATIONS">תפעול</hlm-select-item>
-                    <hlm-select-item value="INTEREST">כיסוי ריבית</hlm-select-item>
-                    <hlm-select-item value="DEDICATED">ייעודי</hlm-select-item>
+                    <hlm-select-item value="">{{ t('donations.types.oneTime') }}</hlm-select-item>
+                    <hlm-select-item value="LOAN_FUND">{{ t('loans.title') }}</hlm-select-item>
+                    <hlm-select-item value="OPERATIONS">{{ t('accounting.accountTypes.expense') }}</hlm-select-item>
+                    <hlm-select-item value="INTEREST">{{ t('loans.payments.interest') }}</hlm-select-item>
+                    <hlm-select-item value="DEDICATED">{{ t('donations.types.inKind') }}</hlm-select-item>
                   </hlm-select-content>
                 </brn-select>
               </div>
@@ -109,37 +109,37 @@ import { GmnMockService } from '../../../../core/services/mock-data';
 
           <!-- Payment Details -->
           <div hlmCard class="p-6">
-            <h3 class="mb-4 font-semibold border-b pb-2">אמצעי תשלום</h3>
+            <h3 class="mb-4 font-semibold border-b pb-2">{{ t('donations.fields.paymentMethod') }}</h3>
             <div class="space-y-4">
               <div>
-                <label hlmLabel>אמצעי תשלום *</label>
+                <label hlmLabel>{{ t('donations.fields.paymentMethod') }} *</label>
                 <brn-select formControlName="paymentMethod" class="w-full">
                   <hlm-select-trigger class="w-full">
-                    <hlm-select-value placeholder="בחר אמצעי" />
+                    <hlm-select-value [placeholder]="t('donations.fields.paymentMethod')" />
                   </hlm-select-trigger>
                   <hlm-select-content>
-                    <hlm-select-item value="CASH">מזומן</hlm-select-item>
-                    <hlm-select-item value="CHECK">צ'ק</hlm-select-item>
-                    <hlm-select-item value="TRANSFER">העברה בנקאית</hlm-select-item>
-                    <hlm-select-item value="CREDIT">כרטיס אשראי</hlm-select-item>
-                    <hlm-select-item value="MASAV">מס"ב</hlm-select-item>
+                    <hlm-select-item value="CASH">{{ t('donations.paymentMethods.cash') }}</hlm-select-item>
+                    <hlm-select-item value="CHECK">{{ t('donations.paymentMethods.check') }}</hlm-select-item>
+                    <hlm-select-item value="TRANSFER">{{ t('donations.paymentMethods.bankTransfer') }}</hlm-select-item>
+                    <hlm-select-item value="CREDIT">{{ t('donations.paymentMethods.creditCard') }}</hlm-select-item>
+                    <hlm-select-item value="MASAV">{{ t('masav.title') }}</hlm-select-item>
                   </hlm-select-content>
                 </brn-select>
               </div>
 
               @if (form.get('paymentMethod')?.value === 'CHECK') {
                 <div>
-                  <label hlmLabel>מספר צ'ק</label>
+                  <label hlmLabel>{{ t('donations.paymentMethods.check') }} #</label>
                   <input hlmInput type="text" formControlName="checkNumber" class="w-full" />
                 </div>
                 <div>
-                  <label hlmLabel>בנק</label>
+                  <label hlmLabel>{{ t('admin.settings.organization') }}</label>
                   <input hlmInput type="text" formControlName="bankName" class="w-full" />
                 </div>
               }
 
               <div>
-                <label hlmLabel>מספר קבלה</label>
+                <label hlmLabel>{{ t('donations.fields.receiptNumber') }}</label>
                 <input hlmInput type="text" formControlName="receiptNumber" class="w-full" />
               </div>
             </div>
@@ -147,12 +147,12 @@ import { GmnMockService } from '../../../../core/services/mock-data';
 
           <!-- Notes -->
           <div hlmCard class="p-6 lg:col-span-2">
-            <h3 class="mb-4 font-semibold border-b pb-2">הערות</h3>
-            <textarea 
-              hlmInput 
-              formControlName="notes" 
+            <h3 class="mb-4 font-semibold border-b pb-2">{{ t('common.notes') }}</h3>
+            <textarea
+              hlmInput
+              formControlName="notes"
               class="w-full min-h-[100px]"
-              placeholder="הערות נוספות..."
+              [placeholder]="t('common.notes')"
             ></textarea>
           </div>
         </div>
@@ -161,11 +161,11 @@ import { GmnMockService } from '../../../../core/services/mock-data';
         <div class="flex justify-end gap-3 mt-6">
           <button hlmBtn type="button" variant="outline" routerLink="/gmn/donations">
             <ng-icon name="lucideX" class="me-2 h-4 w-4" />
-            ביטול
+            {{ t('common.cancel') }}
           </button>
           <button hlmBtn type="submit" [disabled]="!form.valid">
             <ng-icon name="lucideSave" class="me-2 h-4 w-4" />
-            {{ isEditMode() ? 'שמור שינויים' : 'שמור תרומה' }}
+            {{ t('common.save') }}
           </button>
         </div>
       </form>
