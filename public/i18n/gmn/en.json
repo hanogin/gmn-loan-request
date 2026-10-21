@@ -50,7 +50,15 @@
         "clearFilters": "Clear Filters",
         "showing": "Showing",
         "of": "of",
-        "page": "Page"
+        "page": "Page",
+        "bankAccount": "Bank Account",
+        "bank": "Bank",
+        "branch": "Branch",
+        "accountNumber": "Account Number",
+        "accountName": "Account Name",
+        "personalInfo": "Personal Information",
+        "contactInfo": "Contact Information",
+        "financialInfo": "Financial Information"
     },
     "dashboard": {
         "title": "Dashboard",

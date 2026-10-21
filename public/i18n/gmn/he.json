@@ -50,7 +50,15 @@
         "clearFilters": "נקה מסננים",
         "showing": "מציג",
         "of": "מתוך",
-        "page": "עמוד"
+        "page": "עמוד",
+        "bankAccount": "חשבון בנק",
+        "bank": "בנק",
+        "branch": "סניף",
+        "accountNumber": "מספר חשבון",
+        "accountName": "שם החשבון",
+        "personalInfo": "פרטים אישיים",
+        "contactInfo": "פרטי התקשרות",
+        "financialInfo": "פרטים פיננסיים"
     },
     "dashboard": {
         "title": "לוח בקרה",
